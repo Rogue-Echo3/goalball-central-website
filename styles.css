@@ -6537,3 +6537,13 @@ footer strong {
 .livestreaming-hero {
   background-position: 15% center !important;
 }
+
+/* HERO IMAGE CROP TUNING */
+/* Each page can frame its photo independently without changing the shared hero style. */
+.livestreaming-hero { background-position: left center !important; }
+.tournament-hero { background-position: center 45% !important; }
+.profiles-hero { background-position: center 42% !important; }
+.rankings-hero { background-position: center 38% !important; }
+.mobile-page-hero { background-position: center 45% !important; }
+.resources-hero { background-position: center center !important; }
+.rules-hero { background-position: center 42% !important; }

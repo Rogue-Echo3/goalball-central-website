@@ -1,281 +1,130 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>Goalball Central</title>
-
-  <link
-    rel="stylesheet"
-    href="styles.css"
-  >
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Goalball Central</title>
+<link href="styles.css" rel="stylesheet"/>
 </head>
-
-
 <body>
-
-
 <!-- =======================================================
      HEADER
      ======================================================= -->
-
 <header class="site-header">
-
-  <div class="brand">
-
-    <h1>
+<div class="brand">
+<h1>
       GOALBALL CENTRAL
     </h1>
-
-    <div class="brand-line"></div>
-
-    <p>
+<div class="brand-line"></div>
+<p>
       For John
     </p>
-
-  </div>
-
-
-  <!-- DESKTOP NAV -->
-
- <nav class="desktop-nav">
-
-  <a href="../index.html">
-    Home
-  </a>
-
-  <a href="../tournament-information/index.html">
-    Tournament Information Hub
-  </a>
-
-  <a href="../livestreaming/index.html">
-    Livestreaming
-  </a>
-
-  <a href="../team-player-profiles/index.html">
-    Team & Player Profiles
-  </a>
-
-  <a href="../team-rating-index/index.html">
-    Team Rankings
-  </a>
-
-  <a href="../mobile-app/index.html">
-    Mobile App
-  </a>
-
-  <a href="../goalball-resources/index.html">
-    Goalball Resources
-  </a>
-
-  <a href="../goalball-rules/index.html">
-    Goalball Rules
-  </a>
-
+</div>
+<!-- DESKTOP NAV -->
+<nav class="desktop-nav">
+<a href="index.html">Home</a>
+<a href="tournament-information/index.html">Tournament Information Hub</a>
+<a href="livestreaming/index.html">Watch Live</a>
+<a href="team-player-profiles/index.html">Team &amp; Player Profiles</a>
+<a href="team-rating-index/index.html">Team Rankings</a>
+<a href="mobile-app/index.html">Mobile App</a>
+<a href="goalball-resources/index.html">Goalball Resources</a>
+<a href="goalball-rules/index.html">Goalball Rules</a>
 </nav>
-
-
-  <!-- MOBILE MENU BUTTON -->
-
-  <button
-    class="mobile-menu-button"
-    id="mobileMenuButton"
-    aria-label="Open navigation menu"
-  >
+<!-- MOBILE MENU BUTTON -->
+<button aria-label="Open navigation menu" class="mobile-menu-button" id="mobileMenuButton">
     ☰
   </button>
-
-
-  <!-- MOBILE NAV -->
-
- <nav
-  class="mobile-nav"
-  id="mobileNav"
->
-
-  <a href="../index.html">
-    Home
-  </a>
-
-  <a href="../tournament-information/index.html">
-    Tournament Information Hub
-  </a>
-
-  <a href="../livestreaming/index.html">
-    Livestreaming
-  </a>
-
-  <a href="../team-player-profiles/index.html">
-    Team & Player Profiles
-  </a>
-
-  <a href="../team-rating-index/index.html">
-    Team Rankings
-  </a>
-
-  <a href="../mobile-app/index.html">
-    Mobile App
-  </a>
-
-  <a href="../goalball-resources/index.html">
-    Goalball Resources
-  </a>
-
-  <a href="../goalball-rules/index.html">
-    Goalball Rules
-  </a>
-
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav">
+<a href="index.html">Home</a>
+<a href="tournament-information/index.html">Tournament Information Hub</a>
+<a href="livestreaming/index.html">Watch Live</a>
+<a href="team-player-profiles/index.html">Team &amp; Player Profiles</a>
+<a href="team-rating-index/index.html">Team Rankings</a>
+<a href="mobile-app/index.html">Mobile App</a>
+<a href="goalball-resources/index.html">Goalball Resources</a>
+<a href="goalball-rules/index.html">Goalball Rules</a>
 </nav>
-
 </header>
-
-
 <!-- =======================================================
      MAIN CONTENT
      ======================================================= -->
-
 <main>
-
-
 <!-- =======================================================
      TOURNAMENT DASHBOARD
      ======================================================= -->
-
 <section class="tournament-dashboard">
-
-  <div
-    id="mainStatusBadge"
-    class="status-badge update"
-  >
+<div class="status-badge update" id="mainStatusBadge">
     LOADING
   </div>
-
-
-  <div class="dashboard-card tournament-card">
-
-    <span class="label">
+<div class="dashboard-card tournament-card">
+<span class="label">
       Tournament
     </span>
-
-    <strong id="dashboardTournament">
+<strong id="dashboardTournament">
       Loading tournament...
     </strong>
-
-    <span
-      id="dashboardTournamentSub"
-      class="subtext"
-    >
+<span class="subtext" id="dashboardTournamentSub">
       Goalball Central
     </span>
-
-  </div>
-
-
-  <div class="dashboard-card desktop-status">
-
-    <span
-      id="dashboardStatusLabel"
-      class="label"
-    >
+</div>
+<div class="dashboard-card desktop-status">
+<span class="label" id="dashboardStatusLabel">
       Status
     </span>
-
-    <strong id="dashboardStatus">
+<strong id="dashboardStatus">
       Loading...
     </strong>
-
-    <span class="subtext">
+<span class="subtext">
       Live tournament status
     </span>
-
-  </div>
-
-
-  <div class="dashboard-card next-card">
-
-    <span class="label">
+</div>
+<div class="dashboard-card next-card">
+<span class="label">
       Up Next
     </span>
-
-    <strong id="dashboardNext">
+<strong id="dashboardNext">
       Loading...
     </strong>
-
-    <span
-      id="dashboardNextSub"
-      class="subtext"
-    >
+<span class="subtext" id="dashboardNextSub">
       Checking schedule
     </span>
-
-  </div>
-
-
-  <div class="dashboard-card latest-dashboard-card">
-
-    <span class="label">
+</div>
+<div class="dashboard-card latest-dashboard-card">
+<span class="label">
       Latest Result / Update
     </span>
-
-    <strong id="dashboardLatest">
+<strong id="dashboardLatest">
       Loading...
     </strong>
-
-    <span
-      id="dashboardLatestSub"
-      class="subtext"
-    >
+<span class="subtext" id="dashboardLatestSub">
       Checking results
     </span>
-
-  </div>
-
+</div>
 </section>
-
-
-
 <!-- =======================================================
      TICKER
      ======================================================= -->
-
 <section class="ticker">
-
-  <strong id="tickerLabel">
+<strong id="tickerLabel">
     UPDATE
   </strong>
-
-  <div class="ticker-window">
-
-    <div
-      id="tickerContent"
-      class="ticker-content"
-    >
+<div class="ticker-window">
+<div class="ticker-content" id="tickerContent">
       ● Loading Goalball Central tournament data...
     </div>
-
-  </div>
-
+</div>
 </section>
-
-
-
 <!-- =======================================================
      ABOUT JOHN
      ======================================================= -->
-
 <section class="content-section">
-
-  <h2>
+<h2>
     About John Mulhern
   </h2>
-
-  <p>
+<p>
     John Mulhern, a former USA Paralympic goalball athlete and
     six-time National Champion, founded Goalball Scoreboard.
     Competing in the 2000 Sydney and 2004 Athens Paralympic Games,
@@ -284,8 +133,7 @@
     expertise in web development and accessibility, John created
     Goalball Scoreboard to enhance the visibility of the sport.
   </p>
-
-  <p>
+<p>
     Goalball Scoreboard was created to bridge the gap in coverage
     for goalball, a unique Paralympic sport. This platform provides
     real-time updates on schedules, scores, and standings for
@@ -293,8 +141,7 @@
     attend in person but wish to stay informed about their favorite
     teams and players.
   </p>
-
-  <p>
+<p>
     Launched in 2008, Goalball Scoreboard quickly became a trusted
     source for goalball enthusiasts. The platform not only provides
     real-time scores and standings but also offers resources for
@@ -303,28 +150,20 @@
     Blind Sports Federation (IBSA), Goalball Scoreboard ensures that
     fans have access to accurate and reliable information.
   </p>
-
-  <p>
+<p>
     Now Goalball Scoreboard was re-created after John passed away
     in 2024 and continues to operate in his honor, now known as
     Goalball Central - For John.
   </p>
-
 </section>
-
-
-
 <!-- =======================================================
      WHAT IS GOALBALL
      ======================================================= -->
-
 <section class="content-section alt-section">
-
-  <h2>
+<h2>
     What is Goalball?
   </h2>
-
-  <p>
+<p>
     Goalball is a dynamic Paralympic sport designed for athletes
     with visual impairments. Teams of three players compete on a
     court, aiming to score goals by rolling a ball with embedded
@@ -334,150 +173,79 @@
     and resilience, embodying the spirit of inclusivity in
     Paralympic sports.
   </p>
-
-  <p>
+<p>
     Welcome to Goalball Scoreboard Central—your go-to source for
     everything goalball!
   </p>
-
 </section>
-
-
-
 <!-- =======================================================
      UPCOMING GAMES
      ======================================================= -->
-
 <section class="home-section">
-
-  <div class="section-heading">
-
-    <h2>
+<div class="section-heading">
+<h2>
       Upcoming Games
     </h2>
-
-    <div
-      id="upcomingSubtitle"
-      class="section-subtitle"
-    >
+<div class="section-subtitle" id="upcomingSubtitle">
       Loading tournament...
     </div>
-
-  </div>
-
-
-  <div
-    id="upcomingGames"
-    class="games-list"
-  >
-
-    <div class="home-loading">
+</div>
+<div class="games-list" id="upcomingGames">
+<div class="home-loading">
       Loading today's schedule...
     </div>
-
-  </div>
-
-
-  <div class="section-footer">
-
-    <a
-      href="tournament-information/index.html"
-      class="primary-button"
-    >
+</div>
+<div class="section-footer">
+<a class="primary-button" href="tournament-information/index.html">
       View Full Tournament Hub
     </a>
-
-  </div>
-
+</div>
 </section>
-
-
-
 <!-- =======================================================
      LATEST RESULTS
      ======================================================= -->
-
 <section class="home-section section-dark">
-
-  <div class="section-heading">
-
-    <h2>
+<div class="section-heading">
+<h2>
       Latest Results
     </h2>
-
-    <div
-      id="latestResultsSubtitle"
-      class="section-subtitle"
-    >
+<div class="section-subtitle" id="latestResultsSubtitle">
       Loading current tournament...
     </div>
-
-  </div>
-
-
-  <div
-    id="latestResults"
-    class="results-grid"
-  >
-
-    <div class="home-loading">
+</div>
+<div class="results-grid" id="latestResults">
+<div class="home-loading">
       Loading latest results...
     </div>
-
-  </div>
-
-
-  <div class="section-footer">
-
-    <a
-      href="tournament-information/index.html"
-      class="primary-button"
-    >
+</div>
+<div class="section-footer">
+<a class="primary-button" href="tournament-information/index.html">
       View Full Tournament Hub
     </a>
-
-  </div>
-
+</div>
 </section>
-
-
 </main>
-
-
-
 <!-- =======================================================
      FOOTER
      ======================================================= -->
-
 <footer>
-
-  <strong>
+<strong>
     Goalball Central
   </strong>
-
-  <span>
+<span>
     For John
   </span>
-
-  <div class="footer-info">
+<div class="footer-info">
     Founded by: John Mulhern
     <span class="footer-divider">|</span>
     Recreated by: Thomas Rice
     <span class="footer-divider">|</span>
     Last Updated: August 19th, 2026
   </div>
-
 </footer>
-
-
-
 <!-- =======================================================
      JAVASCRIPT
      ======================================================= -->
-
 <script src="script.js"></script>
-
-
 </body>
-
 </html>

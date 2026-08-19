@@ -1,302 +1,135 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>Tournament Information Hub | Goalball Central</title>
-
-  <link
-    rel="stylesheet"
-    href="../../styles.css"
-  >
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tournament Information Hub | Goalball Central</title>
+<link href="../../styles.css" rel="stylesheet"/>
 </head>
-
 <body>
-
 <header class="site-header">
-
-  <div class="brand">
-    <h1>GOALBALL CENTRAL</h1>
-    <div class="brand-line"></div>
-    <p>For John</p>
-  </div>
-
-  <nav class="desktop-nav">
-
-    <a href="../../index.html">
-      Home
-    </a>
-
-    <a href="../index.html">
-      Tournament Information
-    </a>
-
-    <a href="../../livestreaming/index.html">
-      Watch Live
-    </a>
-
-    <a href="../../team-rating-index/index.html">
-      Team Rankings
-    </a>
-
-    <a href="../tournament-final-standings/index.html">
-      Final Results
-    </a>
-
-  </nav>
-
-  <button
-    class="mobile-menu-button"
-    id="mobileMenuButton"
-    aria-label="Open navigation menu"
-  >
+<div class="brand">
+<h1>GOALBALL CENTRAL</h1>
+<div class="brand-line"></div>
+<p>For John</p>
+</div>
+<nav class="desktop-nav">
+<a href="../../index.html">Home</a>
+<a href="../index.html">Tournament Information Hub</a>
+<a href="../../livestreaming/index.html">Watch Live</a>
+<a href="../../team-player-profiles/index.html">Team &amp; Player Profiles</a>
+<a href="../../team-rating-index/index.html">Team Rankings</a>
+<a href="../../mobile-app/index.html">Mobile App</a>
+<a href="../../goalball-resources/index.html">Goalball Resources</a>
+<a href="../../goalball-rules/index.html">Goalball Rules</a>
+</nav>
+<button aria-label="Open navigation menu" class="mobile-menu-button" id="mobileMenuButton">
     ☰
   </button>
-
-  <nav
-    class="mobile-nav"
-    id="mobileNav"
-  >
-
-    <a href="../../index.html">Home</a>
-
-    <a href="../index.html">
-      Tournament Information
-    </a>
-
-    <a href="../../livestreaming/index.html">
-      Watch Live
-    </a>
-
-    <a href="../../team-rating-index/index.html">
-      Team Rankings
-    </a>
-
-    <a href="../tournament-final-standings/index.html">
-      Final Results
-    </a>
-
-  </nav>
-
-</header>
-
-
+<nav class="mobile-nav" id="mobileNav">
+<a href="../../index.html">Home</a>
+<a href="../index.html">Tournament Information Hub</a>
+<a href="../../livestreaming/index.html">Watch Live</a>
+<a href="../../team-player-profiles/index.html">Team &amp; Player Profiles</a>
+<a href="../../team-rating-index/index.html">Team Rankings</a>
+<a href="../../mobile-app/index.html">Mobile App</a>
+<a href="../../goalball-resources/index.html">Goalball Resources</a>
+<a href="../../goalball-rules/index.html">Goalball Rules</a>
+</nav>
+</header><section class="page-hero tournament-hero" style="background-image: url('../../images/heroes/tournament information.jpg');">
+<div class="page-hero-overlay"></div>
+<div class="page-hero-content">
+<h1>Tournament Information Hub</h1>
+<div class="page-hero-line"></div>
+<p>Explore schedules, pools, results, and tournament details.</p>
+</div>
+</section>
 <main class="hub-page">
-
-  <section class="hub-hero">
-
-    <h2>
+<section class="hub-hero">
+<h2>
       Tournament Information Hub
     </h2>
-
-    <p>
+<p>
       Schedules, results, pools, final standings and
       livestreams from Goalball Central tournaments.
     </p>
-
-  </section>
-
-
-  <section class="hub-selector-section">
-
-    <div class="hub-selector-card">
-
-      <label
-        class="hub-selector-label"
-        for="tournament-select"
-      >
+</section>
+<section class="hub-selector-section">
+<div class="hub-selector-card">
+<label class="hub-selector-label" for="tournament-select">
         Select Tournament
       </label>
-
-      <select
-        id="tournament-select"
-        class="hub-select"
-      >
-        <option>
+<select class="hub-select" id="tournament-select">
+<option>
           Loading tournaments...
         </option>
-      </select>
-
-    </div>
-
-  </section>
-
-
-  <section class="hub-content">
-
-    <div
-      id="selected-tournament-title"
-      class="hub-tournament-title"
-    >
+</select>
+</div>
+</section>
+<section class="hub-content">
+<div class="hub-tournament-title" id="selected-tournament-title">
       Loading Tournament...
     </div>
-
-
-    <div class="main-tabs">
-
-      <button
-        type="button"
-        class="main-tab active"
-        onclick="showSection('schedule', this)"
-      >
+<div class="main-tabs">
+<button class="main-tab active" onclick="showSection('schedule', this)" type="button">
         Schedule
       </button>
-
-      <button
-        type="button"
-        class="main-tab"
-        onclick="showSection('results', this)"
-      >
+<button class="main-tab" onclick="showSection('results', this)" type="button">
         Results
       </button>
-
-      <button
-        type="button"
-        class="main-tab"
-        onclick="showSection('pools', this)"
-      >
+<button class="main-tab" onclick="showSection('pools', this)" type="button">
         Pools
       </button>
-
-      <button
-        type="button"
-        class="main-tab"
-        onclick="showSection('standings', this)"
-      >
+<button class="main-tab" onclick="showSection('standings', this)" type="button">
         Final Standings
       </button>
-
-      <button
-        type="button"
-        class="main-tab"
-        onclick="showSection('livestreams', this)"
-      >
+<button class="main-tab" onclick="showSection('livestreams', this)" type="button">
         Livestreams
       </button>
-
-    </div>
-
-
-    <!-- SCHEDULE -->
-
-    <section
-      id="schedule-section"
-      class="section active"
-    >
-
-      <div
-        class="sub-tabs"
-        id="schedule-tabs"
-      ></div>
-
-      <div
-        id="schedule-root"
-        class="notice"
-      >
+</div>
+<!-- SCHEDULE -->
+<section class="section active" id="schedule-section">
+<div class="sub-tabs" id="schedule-tabs"></div>
+<div class="notice" id="schedule-root">
         Loading schedule...
       </div>
-
-    </section>
-
-
-    <!-- RESULTS -->
-
-    <section
-      id="results-section"
-      class="section"
-    >
-
-      <div
-        class="sub-tabs"
-        id="results-tabs"
-      ></div>
-
-      <div
-        id="results-root"
-        class="notice"
-      >
+</section>
+<!-- RESULTS -->
+<section class="section" id="results-section">
+<div class="sub-tabs" id="results-tabs"></div>
+<div class="notice" id="results-root">
         Loading results...
       </div>
-
-    </section>
-
-
-    <!-- POOLS -->
-
-    <section
-      id="pools-section"
-      class="section"
-    >
-
-      <div
-        id="pools-root"
-        class="notice"
-      >
+</section>
+<!-- POOLS -->
+<section class="section" id="pools-section">
+<div class="notice" id="pools-root">
         Loading pools...
       </div>
-
-    </section>
-
-
-    <!-- FINAL STANDINGS -->
-
-    <section
-      id="standings-section"
-      class="section"
-    >
-
-      <div
-        id="standings-root"
-        class="notice"
-      >
+</section>
+<!-- FINAL STANDINGS -->
+<section class="section" id="standings-section">
+<div class="notice" id="standings-root">
         Loading final standings...
       </div>
-
-    </section>
-
-
-    <!-- LIVESTREAMS -->
-
-    <section
-      id="livestreams-section"
-      class="section"
-    >
-
-      <div
-        id="livestreams-root"
-        class="notice"
-      >
+</section>
+<!-- LIVESTREAMS -->
+<section class="section" id="livestreams-section">
+<div class="notice" id="livestreams-root">
         Loading livestreams...
       </div>
-
-    </section>
-
-  </section>
-
+</section>
+</section>
 </main>
-
-
 <footer>
-
-  <strong>
+<strong>
     Goalball Central
   </strong>
-
-  <span>
+<span>
     For John
   </span>
-
 </footer>
-
-
 <script src="hub.js"></script>
-
 </body>
-
 </html>
