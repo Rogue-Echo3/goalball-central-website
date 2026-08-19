@@ -1,0 +1,578 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #050505;
+  color: #ffffff;
+
+  font-family: Arial, sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+  background: #050505;
+
+  border-top: 3px solid #00aaff;
+  border-bottom: 1px solid #222;
+
+  position: relative;
+}
+
+.brand {
+  text-align: center;
+
+  padding: 24px 20px 18px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(0, 170, 255, 0.18),
+      #050505 65%
+    );
+}
+
+.brand h1 {
+  margin: 0;
+
+  font-size: clamp(30px, 5vw, 54px);
+
+  font-weight: 900;
+
+  letter-spacing: 4px;
+}
+
+.brand-line {
+  width: 220px;
+  max-width: 70%;
+
+  height: 3px;
+
+  background: #00aaff;
+
+  margin: 12px auto 8px;
+
+  border-radius: 10px;
+}
+
+.brand p {
+  margin: 0;
+
+  color: #d8d8d8;
+
+  font-style: italic;
+
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.desktop-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #0c0c0c;
+
+  border-top: 1px solid #222;
+}
+
+.desktop-nav a {
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  padding: 15px 22px;
+
+  border-right: 1px solid #222;
+}
+
+.desktop-nav a:first-child {
+  border-left: 1px solid #222;
+}
+
+.desktop-nav a:hover {
+  background: #00aaff;
+
+  color: #000000;
+}
+
+.mobile-menu-button {
+  display: none;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+main {
+  width: 100%;
+}
+
+
+/* =========================================================
+   TOURNAMENT DASHBOARD
+   ========================================================= */
+
+.tournament-dashboard {
+  display: grid;
+
+  grid-template-columns:
+    145px
+    1.2fr
+    1fr
+    1.2fr
+    1.4fr;
+
+  width: 100%;
+
+  border-bottom: 1px solid #222;
+}
+
+.status-badge {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 18px 10px;
+
+  font-size: 22px;
+
+  font-weight: 900;
+}
+
+.status-badge.final {
+  background: #2e7d32;
+}
+
+.status-badge.live {
+  background: #d50000;
+}
+
+.status-badge.next {
+  background: #00aaff;
+
+  color: #000000;
+}
+
+.dashboard-card {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 14px 16px;
+
+  min-height: 88px;
+
+  border-right: 1px solid #333;
+}
+
+.dashboard-card:last-child {
+  border-right: none;
+}
+
+.label {
+  color: #00aaff;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 5px;
+}
+
+.dashboard-card strong {
+  font-size: 16px;
+}
+
+.subtext {
+  margin-top: 5px;
+
+  color: #cccccc;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   TICKER
+   ========================================================= */
+
+.ticker {
+  display: flex;
+
+  align-items: center;
+
+  min-height: 44px;
+
+  border-bottom: 1px solid #222;
+
+  overflow: hidden;
+}
+
+.ticker > strong {
+  padding: 14px 18px;
+
+  color: #00aaff;
+
+  background: #111111;
+
+  font-size: 13px;
+}
+
+.ticker-window {
+  flex: 1;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+}
+
+.ticker-content {
+  display: inline-block;
+
+  min-width: 100%;
+
+  padding-left: 100%;
+
+  animation: tickerScroll 35s linear infinite;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+@keyframes tickerScroll {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.content-section {
+  width: min(1100px, calc(100% - 40px));
+
+  margin: 0 auto;
+
+  padding: 70px 0;
+}
+
+.content-section h2 {
+  margin-top: 0;
+
+  margin-bottom: 28px;
+
+  text-align: center;
+
+  font-size: clamp(28px, 4vw, 46px);
+
+  color: #ffffff;
+}
+
+.content-section p {
+  max-width: 850px;
+
+  margin: 0 auto 18px;
+
+  color: #dddddd;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+.alt-section {
+  border-top: 1px solid #222;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  padding: 25px;
+
+  border-top: 1px solid #222;
+
+  text-align: center;
+
+  color: #888888;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .desktop-nav a {
+    padding: 13px 10px;
+
+    font-size: 12px;
+  }
+
+  .tournament-dashboard {
+    grid-template-columns:
+      100px
+      1fr
+      1fr
+      1fr
+      1fr;
+  }
+
+  .dashboard-card {
+    padding: 12px 10px;
+  }
+
+  .dashboard-card strong {
+    font-size: 14px;
+  }
+
+  .subtext {
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  /* HEADER */
+
+  .brand {
+    padding: 18px 55px 14px;
+  }
+
+  .brand h1 {
+    font-size: 24px;
+
+    letter-spacing: 1.6px;
+
+    white-space: nowrap;
+  }
+
+  .brand p {
+    font-size: 13px;
+  }
+
+  .brand-line {
+    width: 110px;
+
+    margin: 8px auto 5px;
+  }
+
+
+  /* MOBILE MENU */
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: block;
+
+    position: absolute;
+
+    top: 18px;
+    right: 15px;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid #333;
+
+    border-radius: 6px;
+
+    background: #111111;
+
+    color: #ffffff;
+
+    font-size: 22px;
+
+    cursor: pointer;
+  }
+
+  .mobile-nav {
+    display: none;
+
+    flex-direction: column;
+
+    background: #0c0c0c;
+
+    border-top: 1px solid #222;
+  }
+
+  .mobile-nav.open {
+    display: flex;
+  }
+
+  .mobile-nav a {
+    padding: 15px 18px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    border-bottom: 1px solid #222;
+  }
+
+
+  /* DASHBOARD */
+
+  .tournament-dashboard {
+    display: grid;
+
+    grid-template-columns:
+      75px
+      minmax(0, 1fr);
+
+    grid-template-areas:
+      "status tournament"
+      "latest latest"
+      "next next";
+  }
+
+  .status-badge {
+    grid-area: status;
+
+    min-height: 58px;
+
+    padding: 8px;
+
+    font-size: 13px;
+  }
+
+  .tournament-dashboard .dashboard-card:nth-of-type(2) {
+    grid-area: tournament;
+  }
+
+  .desktop-status {
+    display: none;
+  }
+
+  .tournament-dashboard .dashboard-card:nth-of-type(4) {
+    grid-area: next;
+  }
+
+  .latest-card {
+    grid-area: latest;
+  }
+
+  .dashboard-card {
+    min-height: auto;
+
+    padding: 9px 10px;
+
+    border-right: none;
+
+    border-bottom: 1px solid #333;
+  }
+
+  .label {
+    font-size: 9px;
+  }
+
+  .dashboard-card strong {
+    font-size: 13px;
+  }
+
+  .subtext {
+    font-size: 10px;
+  }
+
+
+  /* NO TICKER ON MOBILE */
+
+  .ticker {
+    display: none;
+  }
+
+
+  /* CONTENT */
+
+  .content-section {
+    width: calc(100% - 30px);
+
+    padding: 45px 0;
+  }
+
+  .content-section h2 {
+    font-size: 28px;
+
+    margin-bottom: 22px;
+  }
+
+  .content-section p {
+    font-size: 15px;
+
+    line-height: 1.6;
+  }
+}
+
+.status-badge.update {
+  background: #6a1b9a;
+  color: #ffffff;
+}
