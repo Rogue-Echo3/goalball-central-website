@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tournament Information | Goalball Central</title>
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <div class="brand">
+    <h1>GOALBALL CENTRAL</h1>
+    <div class="brand-line"></div>
+    <p>For John</p>
+  </div>
+
+  <nav class="desktop-nav">
+    <a href="../index.html">Home</a>
+    <a href="../tournament-information/index.html">Tournament Information</a>
+    <a href="../livestreaming/index.html">Watch Live</a>
+    <a href="../team-rating-index/index.html">Team Rankings</a>
+    <a href="../final-results/index.html">Final Results</a>
+  </nav>
+
+  <button
+    class="mobile-menu-button"
+    id="mobileMenuButton"
+    aria-label="Open navigation menu"
+  >
+    ☰
+  </button>
+
+  <nav
+    class="mobile-nav"
+    id="mobileNav"
+  >
+    <a href="../index.html">Home</a>
+    <a href="../tournament-information/index.html">Tournament Information</a>
+    <a href="../livestreaming/index.html">Watch Live</a>
+    <a href="../team-rating-index/index.html">Team Rankings</a>
+    <a href="../final-results/index.html">Final Results</a>
+  </nav>
+
+</header>
+
+
+<main>
+
+  <section class="tournament-info-hero">
+
+    <h2>Tournament Information</h2>
+
+    <p>
+      Schedules, tournament hubs, and final results from
+      Goalball Central events.
+    </p>
+
+  </section>
+
+
+  <section class="tournament-info-grid">
+
+
+    <!-- UPCOMING TOURNAMENTS -->
+
+    <a
+      class="tournament-info-card"
+      href="upcoming-tournaments/index.html"
+    >
+
+      <div class="tournament-info-icon">
+        📅
+      </div>
+
+      <h3>
+        Upcoming Tournaments
+      </h3>
+
+      <p>
+        View upcoming Goalball tournaments, event dates,
+        locations, and tournament information.
+      </p>
+
+      <span class="tournament-info-button">
+        View Upcoming Tournaments
+      </span>
+
+    </a>
+
+
+    <!-- TOURNAMENT HUB -->
+
+    <a
+      class="tournament-info-card featured"
+      href="tournament-information-hub/index.html"
+    >
+
+      <div class="tournament-info-icon">
+        🏐
+      </div>
+
+      <h3>
+        Tournament Information Hub
+      </h3>
+
+      <p>
+        Search tournament schedules, results, pools,
+        standings, and livestream information.
+      </p>
+
+      <span class="tournament-info-button">
+        Open Tournament Hub
+      </span>
+
+    </a>
+
+
+    <!-- FINAL RESULTS -->
+
+    <a
+      class="tournament-info-card"
+      href="tournament-final-standings/index.html"
+    >
+
+      <div class="tournament-info-icon">
+        🏆
+      </div>
+
+      <h3>
+        Tournament Final Results
+      </h3>
+
+      <p>
+        View final tournament standings, placements,
+        and completed event results.
+      </p>
+
+      <span class="tournament-info-button">
+        View Final Results
+      </span>
+
+    </a>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>
+    Goalball Central
+  </strong>
+
+  <span>
+    For John
+  </span>
+
+</footer>
+
+
+<script>
+const mobileMenuButton =
+  document.getElementById("mobileMenuButton");
+
+const mobileNav =
+  document.getElementById("mobileNav");
+
+if (mobileMenuButton && mobileNav) {
+
+  mobileMenuButton.addEventListener(
+    "click",
+    () => {
+
+      mobileNav.classList.toggle("open");
+
+    }
+  );
+
+}
+</script>
+
+</body>
+
+</html>

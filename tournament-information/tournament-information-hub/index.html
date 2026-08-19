@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Tournament Information Hub | Goalball Central</title>
+
+  <link
+    rel="stylesheet"
+    href="../../styles.css"
+  >
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <div class="brand">
+    <h1>GOALBALL CENTRAL</h1>
+    <div class="brand-line"></div>
+    <p>For John</p>
+  </div>
+
+  <nav class="desktop-nav">
+
+    <a href="../../index.html">
+      Home
+    </a>
+
+    <a href="../index.html">
+      Tournament Information
+    </a>
+
+    <a href="../../livestreaming/index.html">
+      Watch Live
+    </a>
+
+    <a href="../../team-rating-index/index.html">
+      Team Rankings
+    </a>
+
+    <a href="../tournament-final-standings/index.html">
+      Final Results
+    </a>
+
+  </nav>
+
+  <button
+    class="mobile-menu-button"
+    id="mobileMenuButton"
+    aria-label="Open navigation menu"
+  >
+    ☰
+  </button>
+
+  <nav
+    class="mobile-nav"
+    id="mobileNav"
+  >
+
+    <a href="../../index.html">Home</a>
+
+    <a href="../index.html">
+      Tournament Information
+    </a>
+
+    <a href="../../livestreaming/index.html">
+      Watch Live
+    </a>
+
+    <a href="../../team-rating-index/index.html">
+      Team Rankings
+    </a>
+
+    <a href="../tournament-final-standings/index.html">
+      Final Results
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main class="hub-page">
+
+  <section class="hub-hero">
+
+    <h2>
+      Tournament Information Hub
+    </h2>
+
+    <p>
+      Schedules, results, pools, final standings and
+      livestreams from Goalball Central tournaments.
+    </p>
+
+  </section>
+
+
+  <section class="hub-selector-section">
+
+    <div class="hub-selector-card">
+
+      <label
+        class="hub-selector-label"
+        for="tournament-select"
+      >
+        Select Tournament
+      </label>
+
+      <select
+        id="tournament-select"
+        class="hub-select"
+      >
+        <option>
+          Loading tournaments...
+        </option>
+      </select>
+
+    </div>
+
+  </section>
+
+
+  <section class="hub-content">
+
+    <div
+      id="selected-tournament-title"
+      class="hub-tournament-title"
+    >
+      Loading Tournament...
+    </div>
+
+
+    <div class="main-tabs">
+
+      <button
+        type="button"
+        class="main-tab active"
+        onclick="showSection('schedule', this)"
+      >
+        Schedule
+      </button>
+
+      <button
+        type="button"
+        class="main-tab"
+        onclick="showSection('results', this)"
+      >
+        Results
+      </button>
+
+      <button
+        type="button"
+        class="main-tab"
+        onclick="showSection('pools', this)"
+      >
+        Pools
+      </button>
+
+      <button
+        type="button"
+        class="main-tab"
+        onclick="showSection('standings', this)"
+      >
+        Final Standings
+      </button>
+
+      <button
+        type="button"
+        class="main-tab"
+        onclick="showSection('livestreams', this)"
+      >
+        Livestreams
+      </button>
+
+    </div>
+
+
+    <!-- SCHEDULE -->
+
+    <section
+      id="schedule-section"
+      class="section active"
+    >
+
+      <div
+        class="sub-tabs"
+        id="schedule-tabs"
+      ></div>
+
+      <div
+        id="schedule-root"
+        class="notice"
+      >
+        Loading schedule...
+      </div>
+
+    </section>
+
+
+    <!-- RESULTS -->
+
+    <section
+      id="results-section"
+      class="section"
+    >
+
+      <div
+        class="sub-tabs"
+        id="results-tabs"
+      ></div>
+
+      <div
+        id="results-root"
+        class="notice"
+      >
+        Loading results...
+      </div>
+
+    </section>
+
+
+    <!-- POOLS -->
+
+    <section
+      id="pools-section"
+      class="section"
+    >
+
+      <div
+        id="pools-root"
+        class="notice"
+      >
+        Loading pools...
+      </div>
+
+    </section>
+
+
+    <!-- FINAL STANDINGS -->
+
+    <section
+      id="standings-section"
+      class="section"
+    >
+
+      <div
+        id="standings-root"
+        class="notice"
+      >
+        Loading final standings...
+      </div>
+
+    </section>
+
+
+    <!-- LIVESTREAMS -->
+
+    <section
+      id="livestreams-section"
+      class="section"
+    >
+
+      <div
+        id="livestreams-root"
+        class="notice"
+      >
+        Loading livestreams...
+      </div>
+
+    </section>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>
+    Goalball Central
+  </strong>
+
+  <span>
+    For John
+  </span>
+
+</footer>
+
+
+<script src="hub.js"></script>
+
+</body>
+
+</html>

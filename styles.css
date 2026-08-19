@@ -1251,3 +1251,1957 @@ footer strong {
   }
 
 }
+
+/* =========================================================
+   LIVESTREAM PAGE
+   ========================================================= */
+
+.livestream-hero {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 60px 0 25px;
+  text-align: center;
+}
+
+.livestream-hero h2 {
+  margin: 0 0 10px;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.livestream-hero p {
+  margin: 0;
+  color: #bbbbbb;
+  font-size: 17px;
+}
+
+
+/* =========================================================
+   TOURNAMENT SELECTOR
+   ========================================================= */
+
+.stream-search-section {
+  width: min(900px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 10px 0 45px;
+}
+
+.stream-search-card {
+  padding: 20px;
+  background: #111111;
+  border: 1px solid #333333;
+  border-radius: 10px;
+}
+
+.stream-search-label {
+  margin-bottom: 10px;
+  color: #00aaff;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.stream-select {
+  width: 100%;
+  padding: 13px 14px;
+  background: #050505;
+  color: #ffffff;
+  border: 1px solid #444444;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.stream-select:focus {
+  outline: 2px solid #00aaff;
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   SELECTED TOURNAMENT
+   ========================================================= */
+
+.stream-content {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-bottom: 70px;
+}
+
+.stream-heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.stream-heading h2 {
+  margin: 0 0 8px;
+  color: #00aaff;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.stream-heading p {
+  margin: 0;
+  color: #bbbbbb;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   DAY BLOCKS
+   ========================================================= */
+
+.stream-day {
+  margin-bottom: 22px;
+  overflow: hidden;
+  background: #0d0d0d;
+  border: 1px solid #333333;
+  border-radius: 10px;
+}
+
+.stream-day-header {
+  padding: 14px 18px;
+  background: #111111;
+  border-bottom: 1px solid #333333;
+}
+
+.stream-day-header h3 {
+  margin: 0;
+  color: #00aaff;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   GYM GRID
+   ========================================================= */
+
+.stream-gym-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 18px;
+}
+
+.stream-gym-card {
+  background: #151515;
+  border: 1px solid #303030;
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.stream-gym-title {
+  margin-bottom: 14px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   STREAM LINKS
+   ========================================================= */
+
+.stream-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stream-item {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.stream-watch-button {
+  display: inline-block;
+  padding: 10px 14px;
+  background: #00aaff;
+  color: #000000;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.stream-watch-button:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+
+/* =========================================================
+   STREAM STATUS
+   ========================================================= */
+
+.stream-status {
+  display: inline-block;
+  padding: 4px 8px;
+  color: #bbbbbb;
+  border: 1px solid #444444;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.stream-status.live {
+  color: #00ff88;
+  border-color: #00ff88;
+}
+
+.stream-status.upcoming {
+  color: #ffaa00;
+  border-color: #ffaa00;
+}
+
+.stream-status.complete {
+  color: #999999;
+  border-color: #555555;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.stream-empty {
+  padding: 45px 20px;
+  color: #888888;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   LIVESTREAM MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .livestream-hero {
+    width: calc(100% - 30px);
+    padding: 40px 0 22px;
+  }
+
+  .livestream-hero h2 {
+    font-size: 32px;
+  }
+
+  .livestream-hero p {
+    font-size: 14px;
+  }
+
+  .stream-search-section {
+    width: calc(100% - 30px);
+    padding-bottom: 32px;
+  }
+
+  .stream-search-card {
+    padding: 15px;
+  }
+
+  .stream-select {
+    font-size: 14px;
+  }
+
+  .stream-content {
+    width: calc(100% - 30px);
+    padding-bottom: 50px;
+  }
+
+  .stream-heading h2 {
+    font-size: 26px;
+  }
+
+  .stream-heading p {
+    font-size: 13px;
+  }
+
+  .stream-day-header {
+    padding: 12px 14px;
+  }
+
+  .stream-day-header h3 {
+    font-size: 19px;
+  }
+
+  .stream-gym-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .stream-gym-card {
+    padding: 14px;
+  }
+
+  .stream-gym-title {
+    font-size: 17px;
+  }
+
+  .stream-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stream-watch-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .stream-status {
+    align-self: center;
+  }
+}
+
+/* =========================================================
+   TOURNAMENT INFORMATION LANDING PAGE
+   ========================================================= */
+
+.tournament-info-hero {
+  width: min(1100px, calc(100% - 40px));
+
+  margin: 0 auto;
+
+  padding:
+    70px
+    0
+    35px;
+
+  text-align: center;
+}
+
+
+.tournament-info-hero h2 {
+  margin:
+    0
+    0
+    12px;
+
+  font-size:
+    clamp(
+      38px,
+      6vw,
+      62px
+    );
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+}
+
+
+.tournament-info-hero p {
+  max-width: 700px;
+
+  margin:
+    0
+    auto;
+
+  color: #bbbbbb;
+
+  font-size: 17px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   3-CARD GRID
+   ========================================================= */
+
+.tournament-info-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 20px;
+
+  width: min(1200px, calc(100% - 40px));
+
+  margin:
+    0
+    auto;
+
+  padding-bottom: 80px;
+}
+
+
+.tournament-info-card {
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 330px;
+
+  padding: 28px;
+
+  background: #111111;
+
+  color: #ffffff;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 12px;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.tournament-info-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #00aaff;
+
+  background: #151515;
+}
+
+
+.tournament-info-card.featured {
+  border-color: #00aaff;
+}
+
+
+.tournament-info-icon {
+  margin-bottom: 18px;
+
+  font-size: 38px;
+}
+
+
+.tournament-info-card h3 {
+  margin:
+    0
+    0
+    14px;
+
+  color: #00aaff;
+
+  font-size: 26px;
+
+  font-weight: 900;
+
+  line-height: 1.15;
+}
+
+
+.tournament-info-card p {
+  flex: 1;
+
+  margin:
+    0
+    0
+    24px;
+
+  color: #cccccc;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+}
+
+
+.tournament-info-button {
+  display: inline-block;
+
+  align-self: flex-start;
+
+  padding:
+    11px
+    15px;
+
+  background: #00aaff;
+
+  color: #000000;
+
+  border-radius: 6px;
+
+  font-size: 13px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+.tournament-info-card:hover
+.tournament-info-button {
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .tournament-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .tournament-info-card {
+    min-height: auto;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .tournament-info-hero {
+    width: calc(100% - 30px);
+
+    padding:
+      45px
+      0
+      28px;
+  }
+
+
+  .tournament-info-hero h2 {
+    font-size: 32px;
+  }
+
+
+  .tournament-info-hero p {
+    font-size: 14px;
+  }
+
+
+  .tournament-info-grid {
+    width: calc(100% - 30px);
+
+    gap: 14px;
+
+    padding-bottom: 50px;
+  }
+
+
+  .tournament-info-card {
+    padding: 20px;
+  }
+
+
+  .tournament-info-icon {
+    margin-bottom: 12px;
+
+    font-size: 30px;
+  }
+
+
+  .tournament-info-card h3 {
+    font-size: 22px;
+  }
+
+
+  .tournament-info-card p {
+    font-size: 14px;
+  }
+
+
+  .tournament-info-button {
+    width: 100%;
+
+    text-align: center;
+  }
+
+}
+
+/* =========================================================
+   UPCOMING TOURNAMENTS PAGE
+   ========================================================= */
+
+.upcoming-hero {
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 65px 0 32px;
+  text-align: center;
+}
+
+.upcoming-hero h2 {
+  margin: 0 0 10px;
+
+  font-size:
+    clamp(
+      36px,
+      6vw,
+      60px
+    );
+
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.upcoming-hero p {
+  margin: 0;
+  color: #bbbbbb;
+  font-size: 17px;
+}
+
+
+.upcoming-content {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+
+
+.upcoming-tournament-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(280px, 1fr)
+    );
+
+  gap: 18px;
+}
+
+
+.upcoming-tournament-card {
+  padding: 24px;
+
+  background: #111111;
+
+  border: 1px solid #333333;
+
+  border-radius: 10px;
+}
+
+
+.upcoming-tournament-year {
+  margin-bottom: 6px;
+
+  color: #00aaff;
+
+  font-size: 13px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+
+.upcoming-tournament-card h3 {
+  margin: 0 0 12px;
+
+  color: #ffffff;
+
+  font-size: 26px;
+
+  font-weight: 900;
+}
+
+
+.upcoming-tournament-date {
+  margin-bottom: 20px;
+
+  color: #cccccc;
+
+  font-size: 15px;
+
+  line-height: 1.5;
+}
+
+
+.upcoming-empty {
+  grid-column: 1 / -1;
+
+  padding: 50px 20px;
+
+  color: #888888;
+
+  text-align: center;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   UPCOMING TOURNAMENTS MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .upcoming-hero {
+    width: calc(100% - 30px);
+
+    padding:
+      42px
+      0
+      25px;
+  }
+
+
+  .upcoming-hero h2 {
+    font-size: 30px;
+  }
+
+
+  .upcoming-hero p {
+    font-size: 14px;
+  }
+
+
+  .upcoming-content {
+    width: calc(100% - 30px);
+
+    padding-bottom: 50px;
+  }
+
+
+  .upcoming-tournament-grid {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+
+  .upcoming-tournament-card {
+    padding: 18px;
+  }
+
+
+  .upcoming-tournament-card h3 {
+    font-size: 22px;
+  }
+
+}
+
+/* =========================================================
+   TOURNAMENT INFORMATION HUB
+   ========================================================= */
+
+
+/* =========================================================
+   HUB PAGE
+   ========================================================= */
+
+.hub-page {
+  min-height: 70vh;
+}
+
+
+.hub-hero {
+  width: min(
+    1100px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding:
+    65px
+    0
+    28px;
+
+  text-align: center;
+}
+
+
+.hub-hero h2 {
+  margin:
+    0
+    0
+    12px;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(
+      36px,
+      6vw,
+      60px
+    );
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+.hub-hero p {
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  color: #bbbbbb;
+
+  font-size: 17px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   TOURNAMENT SELECTOR
+   ========================================================= */
+
+.hub-selector-section {
+  width: min(
+    850px,
+    calc(100% - 40px)
+  );
+
+  margin:
+    0
+    auto;
+
+  padding-bottom: 38px;
+}
+
+
+.hub-selector-card {
+  padding: 20px;
+
+  background: #111111;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 10px;
+}
+
+
+.hub-selector-label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #00aaff;
+
+  font-size: 13px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+.hub-select {
+  width: 100%;
+
+  padding:
+    13px
+    14px;
+
+  background: #050505;
+
+  color: #ffffff;
+
+  border:
+    1px solid
+    #444444;
+
+  border-radius: 6px;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+
+.hub-select:focus {
+  outline:
+    2px solid
+    #00aaff;
+
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   HUB CONTENT
+   ========================================================= */
+
+.hub-content {
+  width: min(
+    1250px,
+    calc(100% - 40px)
+  );
+
+  margin:
+    0
+    auto;
+
+  padding-bottom: 80px;
+}
+
+
+.hub-tournament-title {
+  margin:
+    0
+    0
+    28px;
+
+  color: #00aaff;
+
+  text-align: center;
+
+  font-size:
+    clamp(
+      34px,
+      5vw,
+      56px
+    );
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0
+    0
+    12px
+    rgba(
+      0,
+      170,
+      255,
+      0.25
+    );
+}
+
+
+/* =========================================================
+   MAIN TABS
+   ========================================================= */
+
+.main-tabs {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-bottom: 25px;
+}
+
+
+.main-tab {
+  appearance: none;
+
+  padding:
+    11px
+    19px;
+
+  background: #151515;
+
+  color: #ffffff;
+
+  border:
+    1px solid
+    #444444;
+
+  border-radius: 6px;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+
+.main-tab:hover {
+  border-color: #00aaff;
+}
+
+
+.main-tab.active {
+  background: #00aaff;
+
+  color: #000000;
+
+  border-color: #00aaff;
+}
+
+
+/* =========================================================
+   DAY TABS
+   ========================================================= */
+
+.sub-tabs {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-bottom: 20px;
+}
+
+
+.sub-tab {
+  appearance: none;
+
+  padding:
+    9px
+    15px;
+
+  background: #111111;
+
+  color: #dddddd;
+
+  border:
+    1px solid
+    #3b3b3b;
+
+  border-radius: 999px;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+
+.sub-tab:hover {
+  border-color: #00aaff;
+
+  color: #ffffff;
+}
+
+
+.sub-tab.active {
+  background: #00aaff;
+
+  color: #000000;
+
+  border-color: #00aaff;
+}
+
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+.section {
+  display: none;
+}
+
+
+.section.active {
+  display: block;
+}
+
+
+/* =========================================================
+   NOTICES
+   ========================================================= */
+
+.notice {
+  padding:
+    35px
+    20px;
+
+  color: #aaaaaa;
+
+  text-align: center;
+
+  font-size: 15px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.hub-table-wrap {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 8px;
+
+  background: #101010;
+}
+
+
+.hub-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  color: #ffffff;
+
+  background: #101010;
+
+  text-align: center;
+}
+
+
+.hub-table th {
+  padding:
+    12px
+    10px;
+
+  background: #191919;
+
+  color: #00aaff;
+
+  border-bottom:
+    1px solid
+    #444444;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+
+.hub-table td {
+  padding:
+    12px
+    10px;
+
+  border-bottom:
+    1px solid
+    #292929;
+
+  font-size: 14px;
+
+  vertical-align: middle;
+}
+
+
+.hub-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+.hub-table tbody tr:nth-child(even) {
+  background: #141414;
+}
+
+
+.hub-table tbody tr:hover {
+  background: #191919;
+}
+
+
+.hub-vs {
+  color: #777777;
+
+  font-weight: 900;
+}
+
+
+.hub-result {
+  color: #ffffff;
+
+  font-size: 16px;
+
+  font-weight: 900;
+}
+
+
+.hub-team-cell {
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   GYM BADGE
+   ========================================================= */
+
+.gym-badge {
+  display: inline-block;
+
+  padding:
+    5px
+    9px;
+
+  background: #00aaff;
+
+  color: #000000;
+
+  border-radius: 5px;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   POOLS
+   ========================================================= */
+
+.pool-block {
+  margin-bottom: 32px;
+}
+
+
+.pool-title {
+  margin:
+    0
+    0
+    12px;
+
+  color: #00aaff;
+
+  font-size: 25px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   FINAL STANDINGS
+   ========================================================= */
+
+.standings-wrap {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 20px;
+
+  width: min(
+    900px,
+    100%
+  );
+
+  margin:
+    0
+    auto;
+}
+
+
+.division-standings {
+  overflow: hidden;
+
+  background: #111111;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 10px;
+}
+
+
+.gc-section-title {
+  padding:
+    15px
+    18px;
+
+  background: #181818;
+
+  color: #00aaff;
+
+  border-bottom:
+    1px solid
+    #333333;
+
+  font-size: 17px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+.gc-list {
+  list-style: none;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+
+.gc-list li {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  min-height: 58px;
+
+  padding:
+    13px
+    18px;
+
+  border-bottom:
+    1px solid
+    #292929;
+}
+
+
+.gc-list li:last-child {
+  border-bottom: none;
+}
+
+
+.gc-medal {
+  font-size: 13px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+
+  text-transform: uppercase;
+}
+
+
+.gc-medal.gold {
+  color: #ffd54f;
+}
+
+
+.gc-medal.silver {
+  color: #cfd8dc;
+}
+
+
+.gc-medal.bronze {
+  color: #cd7f32;
+}
+
+
+.gc-team {
+  color: #ffffff;
+
+  text-align: right;
+
+  font-size: 15px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   HUB LIVESTREAMS
+   ========================================================= */
+
+.hub-stream-day {
+  margin-bottom: 22px;
+
+  overflow: hidden;
+
+  background: #0d0d0d;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 10px;
+}
+
+
+.hub-stream-day-title {
+  margin: 0;
+
+  padding:
+    14px
+    18px;
+
+  background: #151515;
+
+  color: #00aaff;
+
+  border-bottom:
+    1px solid
+    #333333;
+
+  font-size: 22px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+.hub-stream-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(
+        260px,
+        1fr
+      )
+    );
+
+  gap: 14px;
+
+  padding: 16px;
+}
+
+
+.hub-stream-card {
+  padding: 16px;
+
+  background: #151515;
+
+  border:
+    1px solid
+    #303030;
+
+  border-radius: 8px;
+}
+
+
+.hub-stream-gym {
+  margin-bottom: 12px;
+
+  color: #ffffff;
+
+  font-size: 18px;
+
+  font-weight: 900;
+}
+
+
+.hub-stream-links {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+
+.hub-stream-item {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+
+.hub-stream-button {
+  display: inline-block;
+
+  padding:
+    9px
+    13px;
+
+  background: #00aaff;
+
+  color: #000000;
+
+  border-radius: 6px;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 900;
+}
+
+
+.hub-stream-button:hover {
+  background: #ffffff;
+}
+
+
+.hub-stream-status {
+  color: #aaaaaa;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   HUB TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .standings-wrap {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   HUB MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .hub-hero {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding:
+      42px
+      0
+      24px;
+  }
+
+
+  .hub-hero h2 {
+    font-size: 29px;
+
+    line-height: 1.1;
+  }
+
+
+  .hub-hero p {
+    font-size: 14px;
+  }
+
+
+  .hub-selector-section {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding-bottom: 28px;
+  }
+
+
+  .hub-selector-card {
+    padding: 15px;
+  }
+
+
+  .hub-select {
+    font-size: 14px;
+  }
+
+
+  .hub-content {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding-bottom: 50px;
+  }
+
+
+  .hub-tournament-title {
+    margin-bottom: 20px;
+
+    font-size: 27px;
+
+    line-height: 1.1;
+  }
+
+
+  /* MAIN TABS */
+
+  .main-tabs {
+    display: grid;
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(
+          0,
+          1fr
+        )
+      );
+
+    gap: 7px;
+  }
+
+
+  .main-tab {
+    width: 100%;
+
+    padding:
+      10px
+      6px;
+
+    font-size: 11px;
+  }
+
+
+  .main-tab:last-child {
+    grid-column:
+      1 / -1;
+  }
+
+
+  /* DAY TABS */
+
+  .sub-tabs {
+    justify-content: flex-start;
+
+    overflow-x: auto;
+
+    flex-wrap: nowrap;
+
+    padding-bottom: 5px;
+  }
+
+
+  .sub-tab {
+    flex: 0 0 auto;
+
+    font-size: 11px;
+
+    padding:
+      8px
+      12px;
+  }
+
+
+  /* =======================================================
+     MOBILE GAME TABLE → CARDS
+     ======================================================= */
+
+  .hub-table-wrap {
+    overflow: visible;
+
+    border: none;
+
+    background: transparent;
+  }
+
+
+  .game-table {
+    display: block;
+
+    background: transparent;
+  }
+
+
+  .game-table thead {
+    display: none;
+  }
+
+
+  .game-table tbody {
+    display: block;
+  }
+
+
+  .game-table tr {
+    display: block;
+
+    margin-bottom: 12px;
+
+    padding: 11px;
+
+    background: #111111;
+
+    border:
+      1px solid
+      #333333;
+
+    border-radius: 8px;
+  }
+
+
+  .game-table tbody tr:nth-child(even) {
+    background: #111111;
+  }
+
+
+  .game-table td {
+    display: grid;
+
+    grid-template-columns:
+      82px
+      minmax(
+        0,
+        1fr
+      );
+
+    gap: 8px;
+
+    align-items: center;
+
+    padding:
+      7px
+      4px;
+
+    border-bottom:
+      1px solid
+      #292929;
+
+    text-align: left;
+
+    font-size: 13px;
+  }
+
+
+  .game-table td:last-child {
+    border-bottom: none;
+  }
+
+
+  .game-table td::before {
+    content:
+      attr(data-label);
+
+    color: #00aaff;
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+
+    text-transform: uppercase;
+  }
+
+
+  .game-table .hub-vs {
+    display: none;
+  }
+
+
+  .game-table .hub-result {
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 900;
+  }
+
+
+  /* =======================================================
+     MOBILE POOL TABLE → CARDS
+     ======================================================= */
+
+  .pool-table {
+    display: block;
+
+    background: transparent;
+  }
+
+
+  .pool-table thead {
+    display: none;
+  }
+
+
+  .pool-table tbody {
+    display: block;
+  }
+
+
+  .pool-table tr {
+    display: grid;
+
+    grid-template-columns:
+      repeat(
+        4,
+        minmax(
+          0,
+          1fr
+        )
+      );
+
+    gap: 8px;
+
+    margin-bottom: 12px;
+
+    padding: 12px;
+
+    background: #111111;
+
+    border:
+      1px solid
+      #333333;
+
+    border-radius: 8px;
+  }
+
+
+  .pool-table tbody tr:nth-child(even) {
+    background: #111111;
+  }
+
+
+  .pool-table td {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    padding: 4px;
+
+    border: none;
+
+    text-align: center;
+
+    font-size: 12px;
+  }
+
+
+  .pool-table td::before {
+    content:
+      attr(data-label);
+
+    color: #00aaff;
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+  }
+
+
+  .pool-table .hub-team-cell {
+    grid-column:
+      1 / -1;
+
+    padding-bottom: 10px;
+
+    border-bottom:
+      1px solid
+      #292929;
+
+    text-align: left;
+
+    font-size: 15px;
+  }
+
+
+  .pool-table
+  .hub-team-cell::before {
+    display: none;
+  }
+
+
+  /* STANDINGS */
+
+  .gc-list li {
+    padding:
+      12px
+      14px;
+  }
+
+
+  .gc-team {
+    font-size: 13px;
+  }
+
+
+  /* LIVESTREAM */
+
+  .hub-stream-grid {
+    grid-template-columns: 1fr;
+
+    padding: 12px;
+  }
+
+
+  .hub-stream-item {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .hub-stream-button {
+    width: 100%;
+
+    text-align: center;
+  }
+
+
+  .hub-stream-status {
+    text-align: center;
+  }
+
+}
