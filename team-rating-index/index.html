@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Team Rating Index | Goalball Central</title>
+
+  <link
+    rel="stylesheet"
+    href="../styles.css"
+  >
+</head>
+
+<body>
+
+
+<header class="site-header">
+
+  <div class="brand">
+
+    <h1>
+      GOALBALL CENTRAL
+    </h1>
+
+    <div class="brand-line"></div>
+
+    <p>
+      For John
+    </p>
+
+  </div>
+
+
+  <nav class="desktop-nav">
+
+    <a href="../index.html">
+      Home
+    </a>
+
+    <a href="../tournament-information/index.html">
+      Tournament Information
+    </a>
+
+    <a href="../livestreaming/index.html">
+      Watch Live
+    </a>
+
+    <a href="../team-player-profiles/index.html">
+      Team & Player Profiles
+    </a>
+
+    <a href="../team-rating-index/index.html">
+      Team Rankings
+    </a>
+
+    <a href="../tournament-information/tournament-final-standings/index.html">
+      Final Results
+    </a>
+
+  </nav>
+
+
+  <button
+    class="mobile-menu-button"
+    id="mobileMenuButton"
+    aria-label="Open navigation menu"
+  >
+    ☰
+  </button>
+
+
+  <nav
+    class="mobile-nav"
+    id="mobileNav"
+  >
+
+    <a href="../index.html">
+      Home
+    </a>
+
+    <a href="../tournament-information/index.html">
+      Tournament Information
+    </a>
+
+    <a href="../livestreaming/index.html">
+      Watch Live
+    </a>
+
+    <a href="../team-player-profiles/index.html">
+      Team & Player Profiles
+    </a>
+
+    <a href="../team-rating-index/index.html">
+      Team Rankings
+    </a>
+
+    <a href="../tournament-information/tournament-final-standings/index.html">
+      Final Results
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main>
+
+  <section class="ratings-hero">
+
+    <h2>
+      Team Rating Index
+    </h2>
+
+    <p>
+      Goalball Central team rankings and rating system.
+    </p>
+
+  </section>
+
+
+  <section class="ratings-frame-section">
+
+    <div class="ratings-frame-wrap">
+
+      <iframe
+        class="ratings-frame"
+        src="https://script.google.com/macros/s/AKfycbxXn-ZLqTgLajg8YcTwIj-2zMq9KmpNaZrVv1Awy2diSWjXwMOJyjsUQn1VW62eSXP-/exec"
+        title="Goalball Central Team Rating Index"
+        loading="lazy"
+      ></iframe>
+
+    </div>
+
+  </section>
+
+
+  <section class="ratings-info">
+
+  <div class="ratings-info-heading">
+
+    <h3>How the Team Rating Index Works</h3>
+
+    <p>
+      The <strong>Team Rating Index (TRI)</strong> is a season-long,
+      performance-based ranking system designed to reflect competitive
+      results across sanctioned goalball tournaments. Rankings are intended
+      to support tournament seeding, competitive balance, and public reporting.
+      <strong>(For research purposes only.)</strong>
+    </p>
+
+  </div>
+
+
+  <div class="ratings-explanation-grid">
+
+
+    <!-- MATCH RESULTS -->
+
+    <article class="ratings-explanation-card">
+
+      <div class="ratings-step">01</div>
+
+      <h4>Match Results & Season Performance</h4>
+
+      <p>
+        All sanctioned matches played during the season are included in the
+        calculation.
+      </p>
+
+      <div class="ratings-points">
+
+        <div>
+          <strong>3</strong>
+          <span>Win</span>
+        </div>
+
+        <div>
+          <strong>1</strong>
+          <span>Tie</span>
+        </div>
+
+        <div>
+          <strong>0</strong>
+          <span>Loss</span>
+        </div>
+
+      </div>
+
+      <p>
+        Games played, total points earned, and goal differential are tracked
+        across every sanctioned event throughout the season.
+      </p>
+
+    </article>
+
+
+    <!-- BASE RATING -->
+
+    <article class="ratings-explanation-card">
+
+      <div class="ratings-step">02</div>
+
+      <h4>Base Rating Calculation</h4>
+
+      <p>
+        Each team receives a <strong>Base Rating</strong> that emphasizes both
+        winning efficiency and scoring performance over the course of the season.
+      </p>
+
+      <div class="ratings-formula">
+
+        <span>Base Rating</span>
+
+        <strong>
+          (Total Points ÷ Games Played) ×
+          (Goal Differential ÷ Games Played)
+        </strong>
+
+      </div>
+
+      <p>
+        By using average goal differential per game rather than total goal
+        differential, the Team Rating Index rewards teams that consistently
+        perform well while allowing fair comparisons between teams that may
+        have played different numbers of games.
+      </p>
+
+    </article>
+
+
+    <!-- PLACEMENT BONUS -->
+
+    <article class="ratings-explanation-card">
+
+      <div class="ratings-step">03</div>
+
+      <h4>Tournament Placement Bonus</h4>
+
+      <p>
+        To recognize success in tournament play, placement bonuses are added
+        to a team's Base Rating.
+      </p>
+
+      <div class="ratings-bonus-columns">
+
+        <div class="ratings-bonus-group">
+
+          <h5>Regional Tournaments</h5>
+
+          <div class="ratings-bonus-row">
+            <span>🥇 1st Place</span>
+            <strong>+9</strong>
+          </div>
+
+          <div class="ratings-bonus-row">
+            <span>🥈 2nd Place</span>
+            <strong>+6</strong>
+          </div>
+
+          <div class="ratings-bonus-row">
+            <span>🥉 3rd Place</span>
+            <strong>+3</strong>
+          </div>
+
+        </div>
+
+
+        <div class="ratings-bonus-group nationals">
+
+          <h5>National Championships</h5>
+
+          <div class="ratings-bonus-row">
+            <span>🥇 1st Place</span>
+            <strong>+15</strong>
+          </div>
+
+          <div class="ratings-bonus-row">
+            <span>🥈 2nd Place</span>
+            <strong>+12</strong>
+          </div>
+
+          <div class="ratings-bonus-row">
+            <span>🥉 3rd Place</span>
+            <strong>+9</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+      <p>
+        Placement bonuses reward podium finishes while ensuring that season-long
+        performance remains the primary factor in the rankings.
+      </p>
+
+    </article>
+
+
+    <!-- FINAL RATING -->
+
+    <article class="ratings-explanation-card">
+
+      <div class="ratings-step">04</div>
+
+      <h4>Final Rating & Ranking Order</h4>
+
+      <p>
+        A team's <strong>Final Rating</strong> is calculated by adding any earned
+        tournament placement bonuses to its Base Rating.
+      </p>
+
+      <div class="ratings-formula">
+
+        <span>Final Rating</span>
+
+        <strong>
+          Base Rating + Placement Bonus
+        </strong>
+
+      </div>
+
+      <p>
+        Teams are ranked from highest to lowest Final Rating. Rankings are
+        updated following each sanctioned tournament and published on a
+        monthly basis.
+      </p>
+
+    </article>
+
+
+    <!-- ROSTER CONTINUITY -->
+
+    <article class="ratings-explanation-card">
+
+      <div class="ratings-step">05</div>
+
+      <h4>Roster Continuity</h4>
+
+      <p>
+        Rankings apply to teams that maintain reasonable roster continuity
+        throughout the season.
+      </p>
+
+      <p>
+        Teams unable to meet this standard may be temporarily listed at the
+        bottom of the rankings until eligibility is restored.
+      </p>
+
+    </article>
+
+
+    <!-- UPDATES -->
+
+    <article class="ratings-explanation-card">
+
+      <div class="ratings-step">06</div>
+
+      <h4>Updates & Publication</h4>
+
+      <p>
+        Rankings are updated automatically as tournament results are added
+        and remain in effect until the next published update.
+      </p>
+
+      <p>
+        If no sanctioned matches are played during a given period, rankings
+        remain unchanged.
+      </p>
+
+    </article>
+
+  </div>
+
+
+  <!-- EXAMPLE -->
+
+  <div class="ratings-example">
+
+    <div class="ratings-example-label">
+      Example Calculation
+    </div>
+
+    <h4>How a Team's Rating Could Be Calculated</h4>
+
+    <p>
+      Suppose a team plays 10 games, earns 20 match points, and finishes
+      with a +15 goal differential.
+    </p>
+
+
+    <div class="ratings-example-steps">
+
+      <div>
+        <span>Points Per Game</span>
+        <strong>20 ÷ 10 = 2.00</strong>
+      </div>
+
+      <div>
+        <span>Goal Differential Per Game</span>
+        <strong>15 ÷ 10 = 1.50</strong>
+      </div>
+
+      <div>
+        <span>Base Rating</span>
+        <strong>2.00 × 1.50 = 3.00</strong>
+      </div>
+
+      <div>
+        <span>Regional 1st Place</span>
+        <strong>+9</strong>
+      </div>
+
+    </div>
+
+
+    <div class="ratings-example-final">
+
+      <span>Final Rating</span>
+
+      <strong>12.00</strong>
+
+    </div>
+
+  </div>
+
+
+  <div class="ratings-note">
+
+    <strong>Why use this system?</strong>
+
+    <p>
+      The Team Rating Index is designed to reward sustained performance across
+      an entire season rather than relying only on a team's record or a single
+      tournament result. It considers match points, scoring margin efficiency,
+      and podium finishes while adjusting for differences in games played.
+    </p>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <strong>
+    Goalball Central
+  </strong>
+
+  <span>
+    For John
+  </span>
+
+</footer>
+
+
+<script>
+const mobileMenuButton =
+  document.getElementById("mobileMenuButton");
+
+const mobileNav =
+  document.getElementById("mobileNav");
+
+if (mobileMenuButton && mobileNav) {
+  mobileMenuButton.addEventListener("click", () => {
+    mobileNav.classList.toggle("open");
+  });
+}
+</script>
+
+</body>
+
+</html>

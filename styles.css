@@ -3205,3 +3205,3335 @@ footer strong {
   }
 
 }
+
+/* =========================================================
+   TOURNAMENT FINAL RESULTS PAGE
+   ========================================================= */
+
+.final-results-hero {
+  width: min(
+    1100px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding:
+    65px
+    0
+    30px;
+
+  text-align: center;
+}
+
+
+.final-results-hero h2 {
+  margin:
+    0
+    0
+    10px;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(
+      36px,
+      6vw,
+      60px
+    );
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+.final-results-hero p {
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  color: #bbbbbb;
+
+  font-size: 17px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   SELECTOR
+   ========================================================= */
+
+.final-results-selector-section {
+  width: min(
+    850px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding-bottom: 38px;
+}
+
+
+.final-results-selector-card {
+  padding: 20px;
+
+  background: #111111;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 10px;
+}
+
+
+.final-results-selector-label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #00aaff;
+
+  font-size: 13px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+.final-results-select {
+  width: 100%;
+
+  padding:
+    13px
+    14px;
+
+  background: #050505;
+
+  color: #ffffff;
+
+  border:
+    1px solid
+    #444444;
+
+  border-radius: 6px;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+
+.final-results-select:focus {
+  outline:
+    2px solid
+    #00aaff;
+
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.final-results-content {
+  width: min(
+    1000px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding-bottom: 80px;
+}
+
+
+.final-results-title {
+  margin:
+    0
+    0
+    28px;
+
+  color: #00aaff;
+
+  text-align: center;
+
+  font-size:
+    clamp(
+      32px,
+      5vw,
+      50px
+    );
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   RESULTS GRID
+   ========================================================= */
+
+.final-results-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 20px;
+}
+
+
+.final-division-card {
+  overflow: hidden;
+
+  background: #111111;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 10px;
+}
+
+
+.final-division-title {
+  padding:
+    16px
+    18px;
+
+  background: #181818;
+
+  color: #00aaff;
+
+  border-bottom:
+    1px solid
+    #333333;
+
+  font-size: 18px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+.final-medal-list {
+  list-style: none;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+
+.final-medal-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 18px;
+
+  min-height: 62px;
+
+  padding:
+    14px
+    18px;
+
+  border-bottom:
+    1px solid
+    #292929;
+}
+
+
+.final-medal-row:last-child {
+  border-bottom: none;
+}
+
+
+.final-medal {
+  font-size: 13px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+
+  text-transform: uppercase;
+}
+
+
+.final-medal.gold {
+  color: #ffd54f;
+}
+
+
+.final-medal.silver {
+  color: #cfd8dc;
+}
+
+
+.final-medal.bronze {
+  color: #cd7f32;
+}
+
+
+.final-team {
+  color: #ffffff;
+
+  text-align: right;
+
+  font-size: 16px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.final-results-empty {
+  padding:
+    50px
+    20px;
+
+  color: #888888;
+
+  text-align: center;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .final-results-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .final-results-hero {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding:
+      42px
+      0
+      24px;
+  }
+
+
+  .final-results-hero h2 {
+    font-size: 30px;
+
+    line-height: 1.1;
+  }
+
+
+  .final-results-hero p {
+    font-size: 14px;
+  }
+
+
+  .final-results-selector-section {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding-bottom: 28px;
+  }
+
+
+  .final-results-selector-card {
+    padding: 15px;
+  }
+
+
+  .final-results-select {
+    font-size: 14px;
+  }
+
+
+  .final-results-content {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding-bottom: 50px;
+  }
+
+
+  .final-results-title {
+    margin-bottom: 20px;
+
+    font-size: 26px;
+
+    line-height: 1.1;
+  }
+
+
+  .final-division-title {
+    font-size: 16px;
+
+    padding:
+      13px
+      14px;
+  }
+
+
+  .final-medal-row {
+    min-height: 56px;
+
+    padding:
+      12px
+      14px;
+  }
+
+
+  .final-medal {
+    font-size: 11px;
+  }
+
+
+  .final-team {
+    font-size: 13px;
+  }
+
+}
+
+/* =========================================================
+   TEAM & PLAYER PROFILES PAGE
+   ========================================================= */
+
+.profiles-hero {
+  width: min(
+    1100px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding:
+    65px
+    0
+    28px;
+
+  text-align: center;
+}
+
+
+.profiles-hero h2 {
+  margin:
+    0
+    0
+    10px;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(
+      36px,
+      6vw,
+      60px
+    );
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+.profiles-hero p {
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  color: #bbbbbb;
+
+  font-size: 17px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   MAIN PROFILE TABS
+   ========================================================= */
+
+.profiles-tab-section {
+  width: min(
+    700px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding-bottom: 38px;
+}
+
+
+.profiles-main-tabs {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 10px;
+}
+
+
+.profiles-main-tab {
+  appearance: none;
+
+  padding:
+    13px
+    18px;
+
+  background: #141414;
+
+  color: #ffffff;
+
+  border:
+    1px solid
+    #444444;
+
+  border-radius: 7px;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+
+.profiles-main-tab:hover {
+  border-color: #00aaff;
+}
+
+
+.profiles-main-tab.active {
+  background: #00aaff;
+
+  color: #000000;
+
+  border-color: #00aaff;
+}
+
+
+/* =========================================================
+   PROFILE SECTIONS
+   ========================================================= */
+
+.profiles-section {
+  display: none;
+
+  width: min(
+    1250px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding-bottom: 80px;
+}
+
+
+.profiles-section.active {
+  display: block;
+}
+
+
+.profiles-section-heading {
+  margin-bottom: 28px;
+
+  text-align: center;
+}
+
+
+.profiles-section-heading h3 {
+  margin:
+    0
+    0
+    7px;
+
+  color: #00aaff;
+
+  font-size:
+    clamp(
+      28px,
+      4vw,
+      44px
+    );
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+.profiles-section-heading p {
+  margin: 0;
+
+  color: #aaaaaa;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   SHARED CONTROLS
+   ========================================================= */
+
+.team-profile-controls,
+.player-profile-controls {
+  display: grid;
+
+  grid-template-columns:
+    minmax(220px, 1fr)
+    repeat(
+      3,
+      minmax(150px, 190px)
+    );
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+}
+
+
+.profile-control label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #aaaaaa;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.6px;
+
+  text-transform: uppercase;
+}
+
+
+.profile-control input,
+.profile-control select {
+  width: 100%;
+
+  min-height: 44px;
+
+  padding:
+    10px
+    12px;
+
+  background: #111111;
+
+  color: #ffffff;
+
+  border:
+    1px solid
+    #3b3b3b;
+
+  border-radius: 7px;
+
+  font-size: 14px;
+}
+
+
+.profile-control input:focus,
+.profile-control select:focus {
+  outline:
+    2px solid
+    #00aaff;
+
+  outline-offset: 1px;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.profiles-status {
+  padding:
+    35px
+    20px;
+
+  background: #111111;
+
+  color: #aaaaaa;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+
+.profiles-error {
+  color: #ff8585;
+}
+
+
+/* =========================================================
+   TEAM SUMMARY
+   ========================================================= */
+
+.team-summary-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+}
+
+
+.team-summary-card {
+  padding: 15px;
+
+  background: #111111;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 8px;
+}
+
+
+.team-summary-label {
+  display: block;
+
+  color: #aaaaaa;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+
+  text-transform: uppercase;
+}
+
+
+.team-summary-value {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #ffffff;
+
+  font-size: 25px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   SUBHEADINGS
+   ========================================================= */
+
+.profiles-subheading {
+  margin:
+    34px
+    0
+    14px;
+
+  color: #ffffff;
+
+  font-size: 22px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TEAM PROFILE CARDS
+   ========================================================= */
+
+.team-profile-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 14px;
+}
+
+
+.team-profile-card {
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #111111;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 10px;
+}
+
+
+.team-profile-card-header {
+  padding: 15px;
+
+  background: #181818;
+
+  border-bottom:
+    1px solid
+    #333333;
+}
+
+
+.team-profile-name {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 19px;
+
+  font-weight: 900;
+
+  overflow-wrap: anywhere;
+}
+
+
+.team-profile-meta {
+  margin-top: 5px;
+
+  color: #aaaaaa;
+
+  font-size: 12px;
+}
+
+
+.team-profile-record {
+  margin-top: 9px;
+
+  color: #00aaff;
+
+  font-size: 27px;
+
+  font-weight: 900;
+}
+
+
+.team-profile-stat-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 1px;
+
+  background: #333333;
+}
+
+
+.team-profile-stat {
+  padding:
+    11px
+    6px;
+
+  background: #111111;
+
+  text-align: center;
+}
+
+
+.team-profile-stat strong {
+  display: block;
+
+  font-size: 17px;
+
+  font-weight: 900;
+}
+
+
+.team-profile-stat span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #999999;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+.team-positive {
+  color: #77d18b;
+}
+
+
+.team-negative {
+  color: #ff8585;
+}
+
+
+.team-profile-details {
+  padding:
+    5px
+    14px
+    12px;
+}
+
+
+.team-profile-detail {
+  padding:
+    10px
+    0;
+
+  border-bottom:
+    1px solid
+    #292929;
+}
+
+
+.team-profile-detail:last-child {
+  border-bottom: none;
+}
+
+
+.team-profile-detail span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #999999;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+.team-profile-detail strong {
+  color: #ffffff;
+
+  font-size: 13px;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   TEAM TABLE
+   ========================================================= */
+
+.team-stats-table-wrap {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 8px;
+}
+
+
+.team-stats-table {
+  width: 100%;
+
+  min-width: 1050px;
+
+  border-collapse: collapse;
+
+  background: #111111;
+}
+
+
+.team-stats-table th,
+.team-stats-table td {
+  padding:
+    11px
+    9px;
+
+  border-bottom:
+    1px solid
+    #292929;
+
+  text-align: center;
+
+  white-space: nowrap;
+
+  font-size: 13px;
+}
+
+
+.team-stats-table th {
+  background: #181818;
+
+  color: #aaaaaa;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+}
+
+
+.team-stats-table th:first-child,
+.team-stats-table td:first-child {
+  position: sticky;
+
+  left: 0;
+
+  background: #111111;
+
+  text-align: left;
+}
+
+
+.team-stats-table th:first-child {
+  background: #181818;
+}
+
+
+.team-stats-updated {
+  margin-top: 14px;
+
+  color: #777777;
+
+  text-align: center;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   PLAYER PROFILE GRID
+   ========================================================= */
+
+.player-profile-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 16px;
+}
+
+
+.player-profile-card {
+  overflow: hidden;
+
+  background: #111111;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 10px;
+}
+
+
+.player-profile-card h4 {
+  margin: 0;
+
+  padding:
+    14px
+    16px;
+
+  background: #181818;
+
+  color: #00aaff;
+
+  border-bottom:
+    1px solid
+    #333333;
+
+  text-align: center;
+
+  font-size: 18px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+.player-stat-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 16px;
+
+  padding:
+    11px
+    14px;
+
+  border-bottom:
+    1px solid
+    #292929;
+}
+
+
+.player-stat-row:last-child {
+  border-bottom: none;
+}
+
+
+.player-stat-row strong {
+  color: #aaaaaa;
+
+  font-size: 13px;
+}
+
+
+.player-stat-row span {
+  color: #ffffff;
+
+  text-align: right;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+.years-card h4 {
+  background: #00aaff;
+
+  color: #000000;
+}
+
+
+.years-played-value {
+  padding:
+    35px
+    20px;
+
+  color: #ffffff;
+
+  text-align: center;
+
+  font-size: 34px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .team-profile-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+
+  .team-profile-controls,
+  .player-profile-controls {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .profiles-hero {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding:
+      42px
+      0
+      24px;
+  }
+
+
+  .profiles-hero h2 {
+    font-size: 29px;
+
+    line-height: 1.1;
+  }
+
+
+  .profiles-hero p {
+    font-size: 14px;
+  }
+
+
+  .profiles-tab-section {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding-bottom: 28px;
+  }
+
+
+  .profiles-main-tab {
+    padding:
+      11px
+      8px;
+
+    font-size: 11px;
+  }
+
+
+  .profiles-section {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding-bottom: 50px;
+  }
+
+
+  .team-profile-controls,
+  .player-profile-controls {
+    grid-template-columns: 1fr;
+  }
+
+
+  .team-summary-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+
+  .team-profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .team-profile-stat-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+
+  .player-profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .profiles-subheading {
+    font-size: 18px;
+  }
+
+
+  .player-stat-row strong,
+  .player-stat-row span {
+    font-size: 12px;
+  }
+
+}
+
+/* =========================================================
+   TEAM RATING INDEX PAGE
+   ========================================================= */
+
+.ratings-hero {
+  width: min(
+    1100px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding:
+    65px
+    0
+    28px;
+
+  text-align: center;
+}
+
+
+.ratings-hero h2 {
+  margin:
+    0
+    0
+    10px;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(
+      36px,
+      6vw,
+      60px
+    );
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+.ratings-hero p {
+  margin: 0;
+
+  color: #bbbbbb;
+
+  font-size: 17px;
+}
+
+
+/* =========================================================
+   RATINGS EMBED
+   ========================================================= */
+
+.ratings-frame-section {
+  width: min(
+    1250px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding-bottom: 55px;
+}
+
+
+.ratings-frame-wrap {
+  width: 100%;
+
+  overflow: hidden;
+
+  background: #111111;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 10px;
+}
+
+
+.ratings-frame {
+  display: block;
+
+  width: 100%;
+
+  height: 850px;
+
+  border: 0;
+
+  background: #000000;
+}
+
+
+/* =========================================================
+   TEAM RATING INDEX EXPLANATION
+   ========================================================= */
+
+.ratings-info {
+  width: min(1150px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+
+
+.ratings-info-heading {
+  max-width: 800px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+
+.ratings-info-heading h3 {
+  margin: 0 0 12px;
+
+  color: #ffffff;
+
+  font-size: clamp(30px, 5vw, 46px);
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+.ratings-info-heading p {
+  margin: 0;
+
+  color: #aaaaaa;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+}
+
+
+/* EXPLANATION CARDS */
+
+.ratings-explanation-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+
+.ratings-explanation-card {
+  position: relative;
+
+  padding: 24px;
+
+  background: #111111;
+
+  border: 1px solid #333333;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+
+.ratings-step {
+  margin-bottom: 12px;
+
+  color: #00aaff;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+
+.ratings-explanation-card h4 {
+  margin: 0 0 13px;
+
+  color: #ffffff;
+
+  font-size: 20px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+.ratings-explanation-card p {
+  margin: 10px 0;
+
+  color: #bbbbbb;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+
+/* MATCH POINTS */
+
+.ratings-points {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 8px;
+
+  margin: 20px 0;
+}
+
+
+.ratings-points div {
+  padding: 15px 8px;
+
+  background: #080808;
+
+  border: 1px solid #292929;
+
+  border-radius: 7px;
+
+  text-align: center;
+}
+
+
+.ratings-points strong {
+  display: block;
+
+  color: #00aaff;
+
+  font-size: 28px;
+
+  font-weight: 900;
+}
+
+
+.ratings-points span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #aaaaaa;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+/* FORMULAS */
+
+.ratings-formula {
+  margin: 20px 0;
+
+  padding: 20px;
+
+  background: #050505;
+
+  border-left: 4px solid #00aaff;
+
+  border-radius: 6px;
+}
+
+
+.ratings-formula span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #00aaff;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+.ratings-formula strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 18px;
+
+  line-height: 1.5;
+}
+
+
+.ratings-mini-formula {
+  margin-top: 15px;
+
+  padding: 12px;
+
+  background: #080808;
+
+  color: #dddddd;
+
+  border: 1px solid #292929;
+
+  border-radius: 6px;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  font-weight: 800;
+}
+
+
+/* PLACEMENT BONUSES */
+
+.ratings-bonus-columns {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+
+.ratings-bonus-group {
+  overflow: hidden;
+
+  background: #080808;
+
+  border: 1px solid #292929;
+
+  border-radius: 7px;
+}
+
+
+.ratings-bonus-group h5 {
+  margin: 0;
+
+  padding: 11px;
+
+  background: #181818;
+
+  color: #00aaff;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+.ratings-bonus-group.nationals h5 {
+  color: #ffffff;
+}
+
+
+.ratings-bonus-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 11px 12px;
+
+  border-top: 1px solid #222222;
+}
+
+
+.ratings-bonus-row span {
+  color: #cccccc;
+
+  font-size: 12px;
+}
+
+
+.ratings-bonus-row strong {
+  color: #ffffff;
+
+  font-size: 15px;
+}
+
+
+/* EXAMPLE */
+
+.ratings-example {
+  margin-top: 35px;
+
+  padding: 28px;
+
+  background: #111111;
+
+  border: 1px solid #00aaff;
+
+  border-radius: 10px;
+}
+
+
+.ratings-example-label {
+  margin-bottom: 7px;
+
+  color: #00aaff;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+.ratings-example h4 {
+  margin: 0 0 10px;
+
+  color: #ffffff;
+
+  font-size: 24px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+.ratings-example > p {
+  color: #aaaaaa;
+
+  line-height: 1.6;
+}
+
+
+.ratings-example-steps {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: 8px;
+
+  margin-top: 22px;
+}
+
+
+.ratings-example-steps div {
+  padding: 14px 10px;
+
+  background: #050505;
+
+  border: 1px solid #292929;
+
+  border-radius: 6px;
+
+  text-align: center;
+}
+
+
+.ratings-example-steps span {
+  display: block;
+
+  min-height: 30px;
+
+  color: #888888;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+.ratings-example-steps strong {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #ffffff;
+
+  font-size: 14px;
+}
+
+
+.ratings-example-final {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-top: 12px;
+
+  padding: 17px 20px;
+
+  background: #00aaff;
+
+  color: #000000;
+
+  border-radius: 6px;
+
+  font-weight: 900;
+}
+
+
+.ratings-example-final span {
+  text-transform: uppercase;
+}
+
+
+.ratings-example-final strong {
+  font-size: 27px;
+}
+
+
+/* NOTE */
+
+.ratings-note {
+  margin-top: 25px;
+
+  padding: 22px;
+
+  background: #0a0a0a;
+
+  border-left: 4px solid #00aaff;
+}
+
+
+.ratings-note strong {
+  color: #ffffff;
+
+  font-size: 16px;
+
+  text-transform: uppercase;
+}
+
+
+.ratings-note p {
+  margin: 8px 0 0;
+
+  color: #aaaaaa;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   TEAM RATING EXPLANATION - MOBILE
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+  .ratings-explanation-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .ratings-bonus-columns {
+    grid-template-columns: 1fr;
+  }
+
+
+  .ratings-example-steps {
+    grid-template-columns: 1fr;
+  }
+
+
+  .ratings-example-steps span {
+    min-height: 0;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .ratings-info {
+    width: calc(100% - 30px);
+
+    padding-bottom: 50px;
+  }
+
+
+  .ratings-info-heading h3 {
+    font-size: 27px;
+  }
+
+
+  .ratings-info-heading p {
+    font-size: 14px;
+  }
+
+
+  .ratings-explanation-card {
+    padding: 18px;
+  }
+
+
+  .ratings-explanation-card h4 {
+    font-size: 17px;
+  }
+
+
+  .ratings-points strong {
+    font-size: 23px;
+  }
+
+
+  .ratings-formula strong {
+    font-size: 15px;
+  }
+
+
+  .ratings-example {
+    padding: 18px;
+  }
+
+
+  .ratings-example h4 {
+    font-size: 19px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .ratings-hero {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding:
+      42px
+      0
+      24px;
+  }
+
+
+  .ratings-hero h2 {
+    font-size: 30px;
+  }
+
+
+  .ratings-hero p {
+    font-size: 14px;
+  }
+
+
+  .ratings-frame-section {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding-bottom: 40px;
+  }
+
+
+  .ratings-frame {
+    height: 900px;
+  }
+
+
+  .ratings-info {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding-bottom: 50px;
+  }
+
+
+  .ratings-rule-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* =========================================================
+   MOBILE APP PAGE
+   ========================================================= */
+
+.mobile-app-hero {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 70px 0 55px;
+}
+
+
+.mobile-app-hero-content {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.2fr)
+    minmax(260px, 0.8fr);
+
+  gap: 50px;
+  align-items: center;
+}
+
+
+.mobile-app-eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+
+  color: #00aaff;
+
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+
+.mobile-app-copy h2 {
+  margin: 0 0 18px;
+
+  color: #ffffff;
+
+  font-size: clamp(38px, 6vw, 64px);
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+
+.mobile-app-copy p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: #bbbbbb;
+
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+
+.mobile-app-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 26px;
+}
+
+
+.app-store-button {
+  display: inline-block;
+
+  padding: 13px 20px;
+
+  background: #00aaff;
+
+  color: #000000;
+
+  border-radius: 7px;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 900;
+}
+
+
+.app-store-button:hover {
+  background: #ffffff;
+}
+
+
+.app-store-button.disabled {
+  background: #222222;
+  color: #777777;
+  cursor: default;
+}
+
+
+.app-store-button.large {
+  padding: 15px 24px;
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   PHONE PREVIEW
+   ========================================================= */
+
+.mobile-app-preview {
+  display: flex;
+  justify-content: center;
+}
+
+
+.phone-shell {
+  width: 250px;
+  padding: 12px;
+
+  background: #151515;
+
+  border: 2px solid #333333;
+
+  border-radius: 32px;
+
+  box-shadow:
+    0 0 35px
+    rgba(0, 170, 255, 0.12);
+}
+
+
+.phone-screen {
+  min-height: 470px;
+
+  padding: 24px 14px;
+
+  background: #050505;
+
+  border-radius: 24px;
+}
+
+
+.phone-brand {
+  margin-bottom: 24px;
+
+  color: #ffffff;
+
+  text-align: center;
+
+  font-size: 18px;
+  font-weight: 900;
+}
+
+
+.phone-card {
+  margin-bottom: 12px;
+
+  padding: 16px;
+
+  background: #111111;
+
+  color: #00aaff;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 9px;
+
+  text-align: center;
+
+  font-size: 13px;
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.mobile-app-features {
+  width: min(1150px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 25px 0 75px;
+}
+
+
+.mobile-app-section-heading {
+  max-width: 700px;
+  margin: 0 auto 30px;
+
+  text-align: center;
+}
+
+
+.mobile-app-section-heading h3 {
+  margin: 0 0 10px;
+
+  color: #ffffff;
+
+  font-size: clamp(30px, 5vw, 46px);
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+.mobile-app-section-heading p {
+  margin: 0;
+
+  color: #aaaaaa;
+
+  font-size: 15px;
+}
+
+
+.mobile-app-feature-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 16px;
+}
+
+
+.mobile-app-feature-card {
+  padding: 22px;
+
+  background: #111111;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 10px;
+}
+
+
+.mobile-app-feature-card h4 {
+  margin: 0 0 10px;
+
+  color: #00aaff;
+
+  font-size: 18px;
+
+  font-weight: 900;
+}
+
+
+.mobile-app-feature-card p {
+  margin: 0;
+
+  color: #bbbbbb;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   DOWNLOAD CTA
+   ========================================================= */
+
+.mobile-app-download {
+  width: min(900px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 45px 30px 70px;
+
+  text-align: center;
+}
+
+
+.mobile-app-download h3 {
+  margin: 0 0 10px;
+
+  color: #ffffff;
+
+  font-size: 30px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+.mobile-app-download p {
+  margin: 0 0 22px;
+
+  color: #aaaaaa;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .mobile-app-hero-content {
+    grid-template-columns: 1fr;
+  }
+
+
+  .mobile-app-copy {
+    text-align: center;
+  }
+
+
+  .mobile-app-copy p {
+    margin: 0 auto;
+  }
+
+
+  .mobile-app-buttons {
+    justify-content: center;
+  }
+
+
+  .mobile-app-feature-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .mobile-app-hero {
+    width: calc(100% - 30px);
+
+    padding:
+      42px
+      0
+      38px;
+  }
+
+
+  .mobile-app-copy h2 {
+    font-size: 34px;
+  }
+
+
+  .mobile-app-copy p {
+    font-size: 14px;
+  }
+
+
+  .mobile-app-buttons {
+    flex-direction: column;
+  }
+
+
+  .app-store-button {
+    width: 100%;
+
+    text-align: center;
+  }
+
+
+  .phone-shell {
+    width: 220px;
+  }
+
+
+  .phone-screen {
+    min-height: 410px;
+  }
+
+
+  .mobile-app-features {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding-bottom: 50px;
+  }
+
+
+  .mobile-app-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .mobile-app-download {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding:
+      35px
+      10px
+      50px;
+  }
+
+}
+
+/* =========================================================
+   GOALBALL RESOURCES PAGE
+   ========================================================= */
+
+.resources-hero {
+  width: min(
+    1100px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding:
+    65px
+    0
+    30px;
+
+  text-align: center;
+}
+
+
+.resources-hero h2 {
+  margin:
+    0
+    0
+    10px;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(
+      36px,
+      6vw,
+      60px
+    );
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+.resources-hero p {
+  max-width: 720px;
+
+  margin: 0 auto;
+
+  color: #bbbbbb;
+
+  font-size: 17px;
+
+  line-height: 1.6;
+}
+
+
+.resources-content {
+  width: min(
+    1150px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding-bottom: 80px;
+}
+
+
+.resources-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 16px;
+}
+
+
+.resource-card {
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 230px;
+
+  padding: 22px;
+
+  background: #111111;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 10px;
+}
+
+
+.resource-card h3 {
+  margin:
+    0
+    0
+    10px;
+
+  color: #00aaff;
+
+  font-size: 20px;
+
+  font-weight: 900;
+}
+
+
+.resource-card p {
+  flex: 1;
+
+  margin:
+    0
+    0
+    18px;
+
+  color: #bbbbbb;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+.resource-card a {
+  display: inline-block;
+
+  align-self: flex-start;
+
+  padding:
+    10px
+    14px;
+
+  background: #00aaff;
+
+  color: #000000;
+
+  border-radius: 6px;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 900;
+}
+
+
+.resource-card a:hover {
+  background: #ffffff;
+}
+
+
+@media (max-width: 900px) {
+
+  .resources-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .resources-hero {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding:
+      42px
+      0
+      24px;
+  }
+
+
+  .resources-hero h2 {
+    font-size: 30px;
+  }
+
+
+  .resources-hero p {
+    font-size: 14px;
+  }
+
+
+  .resources-content {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding-bottom: 50px;
+  }
+
+
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .resource-card {
+    min-height: auto;
+  }
+
+
+  .resource-card a {
+    width: 100%;
+
+    text-align: center;
+  }
+
+}
+
+/* =========================================================
+   GOALBALL RULES PAGE
+   ========================================================= */
+
+.rules-hero {
+  width: min(
+    1100px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding:
+    65px
+    0
+    28px;
+
+  text-align: center;
+}
+
+
+.rules-hero h2 {
+  margin:
+    0
+    0
+    10px;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(
+      36px,
+      6vw,
+      60px
+    );
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+.rules-hero p {
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  color: #bbbbbb;
+
+  font-size: 17px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   RULE TOOLS
+   ========================================================= */
+
+.rules-tools {
+  width: min(
+    1150px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding-bottom: 30px;
+}
+
+
+.rules-search-wrap {
+  margin-bottom: 20px;
+
+  padding: 18px;
+
+  background: #111111;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 9px;
+}
+
+
+.rules-search-wrap label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #00aaff;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+.rules-search-wrap input {
+  width: 100%;
+
+  padding:
+    13px
+    14px;
+
+  background: #050505;
+
+  color: #ffffff;
+
+  border:
+    1px solid
+    #444444;
+
+  border-radius: 6px;
+
+  font-size: 15px;
+}
+
+
+.rules-search-wrap input:focus {
+  outline:
+    2px solid
+    #00aaff;
+
+  outline-offset: 1px;
+}
+
+
+/* =========================================================
+   PART TABS
+   ========================================================= */
+
+.rules-part-tabs {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 10px;
+
+  margin-bottom: 14px;
+}
+
+
+.rules-part-tab {
+  appearance: none;
+
+  padding:
+    13px
+    16px;
+
+  background: #151515;
+
+  color: #ffffff;
+
+  border:
+    1px solid
+    #444444;
+
+  border-radius: 7px;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+
+.rules-part-tab:hover {
+  border-color: #00aaff;
+}
+
+
+.rules-part-tab.active {
+  background: #00aaff;
+
+  color: #000000;
+
+  border-color: #00aaff;
+}
+
+
+/* =========================================================
+   SECTION TABS
+   ========================================================= */
+
+.rules-section-tabs {
+  display: flex;
+
+  gap: 8px;
+
+  overflow-x: auto;
+
+  padding-bottom: 7px;
+}
+
+
+.rules-section-tab {
+  flex: 0 0 auto;
+
+  appearance: none;
+
+  padding:
+    9px
+    13px;
+
+  background: #111111;
+
+  color: #cccccc;
+
+  border:
+    1px solid
+    #3b3b3b;
+
+  border-radius: 999px;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+
+.rules-section-tab:hover {
+  color: #ffffff;
+
+  border-color: #00aaff;
+}
+
+
+.rules-section-tab.active {
+  background: #00aaff;
+
+  color: #000000;
+
+  border-color: #00aaff;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.rules-content {
+  width: min(
+    1150px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding-bottom: 80px;
+}
+
+
+.rules-status,
+.rules-empty {
+  padding:
+    45px
+    20px;
+
+  background: #111111;
+
+  color: #999999;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 9px;
+
+  text-align: center;
+
+  font-size: 15px;
+}
+
+
+.rules-section-heading {
+  margin-bottom: 22px;
+
+  text-align: center;
+}
+
+
+.rules-section-heading span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #00aaff;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+.rules-section-heading h2 {
+  margin:
+    0
+    0
+    6px;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(
+      25px,
+      4vw,
+      38px
+    );
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+.rules-section-heading p {
+  margin: 0;
+
+  color: #888888;
+
+  font-size: 12px;
+}
+
+
+.rules-search-summary {
+  margin-bottom: 18px;
+
+  color: #00aaff;
+
+  font-size: 13px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   RULE CARDS
+   ========================================================= */
+
+.rules-card-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+
+.rule-card {
+  overflow: hidden;
+
+  background: #111111;
+
+  border:
+    1px solid
+    #333333;
+
+  border-radius: 10px;
+}
+
+
+.rule-card-header {
+  padding:
+    16px
+    18px;
+
+  background: #181818;
+
+  border-bottom:
+    1px solid
+    #333333;
+}
+
+
+.rule-number {
+  margin-bottom: 5px;
+
+  color: #00aaff;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+.rule-card-header h3 {
+  margin:
+    0
+    0
+    6px;
+
+  color: #ffffff;
+
+  font-size: 20px;
+
+  font-weight: 900;
+}
+
+
+.rule-section-name {
+  color: #888888;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+}
+
+
+.rule-card-body {
+  padding:
+    17px
+    18px;
+}
+
+
+.rule-card-body p {
+  margin:
+    0
+    0
+    13px;
+
+  color: #cccccc;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+.rule-card-body p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   RULES MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .rules-hero {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding:
+      42px
+      0
+      24px;
+  }
+
+
+  .rules-hero h2 {
+    font-size: 30px;
+  }
+
+
+  .rules-hero p {
+    font-size: 14px;
+  }
+
+
+  .rules-tools,
+  .rules-content {
+    width:
+      calc(
+        100% - 30px
+      );
+  }
+
+
+  .rules-part-tabs {
+    grid-template-columns: 1fr;
+  }
+
+
+  .rules-part-tab {
+    font-size: 11px;
+  }
+
+
+  .rule-card-header,
+  .rule-card-body {
+    padding:
+      14px;
+  }
+
+
+  .rule-card-header h3 {
+    font-size: 17px;
+  }
+
+
+  .rule-card-body p {
+    font-size: 13px;
+  }
+
+}
+
+/* =========================================================
+   FOOTER INFORMATION
+   ========================================================= */
+
+.footer-info {
+  margin-top: 10px;
+  color: #888;
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.footer-divider {
+  margin: 0 8px;
+  color: #00aaff;
+}
+
+@media (max-width: 650px) {
+
+  .footer-info {
+    max-width: 320px;
+    margin: 10px auto 0;
+    font-size: 11px;
+  }
+
+  .footer-divider {
+    margin: 0 5px;
+  }
+
+}
+
+/* =========================================================
+   PAGE HERO IMAGES
+   ========================================================= */
+
+.page-hero {
+  position: relative;
+
+  min-height: 330px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.72)
+    );
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 1;
+
+  width: min(900px, calc(100% - 40px));
+
+  text-align: center;
+}
+
+.page-hero-content h1 {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: clamp(44px, 7vw, 76px);
+  font-weight: 900;
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.9);
+}
+
+.page-hero-line {
+  width: 180px;
+  height: 4px;
+
+  margin: 14px auto;
+
+  background: #00aaff;
+}
+
+.page-hero-content p {
+  margin: 0;
+
+  color: #eee;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  text-shadow: 0 2px 8px #000;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+  .page-hero {
+    min-height: 230px;
+  }
+
+  .page-hero-content h1 {
+    font-size: 36px;
+  }
+
+  .page-hero-content p {
+    font-size: 14px;
+  }
+
+  .page-hero-line {
+    width: 110px;
+    height: 3px;
+  }
+
+}
+
+.livestreaming-hero {
+  background-position: 15% center !important;
+}

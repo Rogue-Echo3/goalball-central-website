@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Team & Player Profiles | Goalball Central</title>
+
+  <link
+    rel="stylesheet"
+    href="../styles.css"
+  >
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+  <div class="brand">
+
+    <h1>
+      GOALBALL CENTRAL
+    </h1>
+
+    <div class="brand-line"></div>
+
+    <p>
+      For John
+    </p>
+
+  </div>
+
+
+  <nav class="desktop-nav">
+
+    <a href="../index.html">
+      Home
+    </a>
+
+    <a href="../tournament-information/index.html">
+      Tournament Information
+    </a>
+
+    <a href="../livestreaming/index.html">
+      Watch Live
+    </a>
+
+    <a href="../team-player-profiles/index.html">
+      Team & Player Profiles
+    </a>
+
+    <a href="../tournament-information/tournament-final-standings/index.html">
+      Final Results
+    </a>
+
+  </nav>
+
+
+  <button
+    class="mobile-menu-button"
+    id="mobileMenuButton"
+    aria-label="Open navigation menu"
+  >
+    ☰
+  </button>
+
+
+  <nav
+    class="mobile-nav"
+    id="mobileNav"
+  >
+
+    <a href="../index.html">
+      Home
+    </a>
+
+    <a href="../tournament-information/index.html">
+      Tournament Information
+    </a>
+
+    <a href="../livestreaming/index.html">
+      Watch Live
+    </a>
+
+    <a href="../team-player-profiles/index.html">
+      Team & Player Profiles
+    </a>
+
+    <a href="../tournament-information/tournament-final-standings/index.html">
+      Final Results
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main>
+
+
+  <section class="profiles-hero">
+
+    <h2>
+      Team & Player Profiles
+    </h2>
+
+    <p>
+      Explore Goalball Central team statistics and player performance profiles.
+    </p>
+
+  </section>
+
+
+  <section class="profiles-tab-section">
+
+    <div class="profiles-main-tabs">
+
+      <button
+        type="button"
+        class="profiles-main-tab active"
+        data-profile-tab="teams"
+      >
+        Team Profiles
+      </button>
+
+      <button
+        type="button"
+        class="profiles-main-tab"
+        data-profile-tab="players"
+      >
+        Player Profiles
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       TEAM PROFILES
+       ===================================================== -->
+
+  <section
+    id="teamProfilesSection"
+    class="profiles-section active"
+  >
+
+    <div class="profiles-section-heading">
+
+      <h3>
+        Team Profiles
+      </h3>
+
+      <p>
+        Year-to-date team statistics from Goalball Central tournaments.
+      </p>
+
+    </div>
+
+
+    <div class="team-profile-controls">
+
+      <div class="profile-control">
+
+        <label for="gc-search">
+          Search teams
+        </label>
+
+        <input
+          id="gc-search"
+          type="search"
+          placeholder="Enter a team name"
+          autocomplete="off"
+        >
+
+      </div>
+
+
+      <div class="profile-control">
+
+        <label for="gc-division">
+          Division
+        </label>
+
+        <select id="gc-division">
+
+          <option value="ALL">
+            All divisions
+          </option>
+
+          <option value="M">
+            Men
+          </option>
+
+          <option value="W">
+            Women
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="profile-control">
+
+        <label for="gc-season">
+          Season
+        </label>
+
+        <select id="gc-season">
+
+          <option value="ALL">
+            All seasons
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="profile-control">
+
+        <label for="gc-sort">
+          Sort by
+        </label>
+
+        <select id="gc-sort">
+
+          <option value="team-asc">
+            Team name
+          </option>
+
+          <option value="gp-desc">
+            Games played
+          </option>
+
+          <option value="wins-desc">
+            Wins
+          </option>
+
+          <option value="winPct-desc">
+            Win percentage
+          </option>
+
+          <option value="gf-desc">
+            Goals for
+          </option>
+
+          <option value="ga-asc">
+            Fewest goals allowed
+          </option>
+
+          <option value="gd-desc">
+            Goal differential
+          </option>
+
+          <option value="gpg-desc">
+            Goals per game
+          </option>
+
+          <option value="gapg-asc">
+            Fewest allowed per game
+          </option>
+
+          <option value="appearances-desc">
+            Tournament appearances
+          </option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+
+    <div class="team-summary-grid">
+
+      <div class="team-summary-card">
+
+        <span class="team-summary-label">
+          Teams shown
+        </span>
+
+        <strong
+          id="gc-total-teams"
+          class="team-summary-value"
+        >
+          —
+        </strong>
+
+      </div>
+
+
+      <div class="team-summary-card">
+
+        <span class="team-summary-label">
+          Games played
+        </span>
+
+        <strong
+          id="gc-total-games"
+          class="team-summary-value"
+        >
+          —
+        </strong>
+
+      </div>
+
+
+      <div class="team-summary-card">
+
+        <span class="team-summary-label">
+          Goals scored
+        </span>
+
+        <strong
+          id="gc-total-goals"
+          class="team-summary-value"
+        >
+          —
+        </strong>
+
+      </div>
+
+
+      <div class="team-summary-card">
+
+        <span class="team-summary-label">
+          Tournament entries
+        </span>
+
+        <strong
+          id="gc-total-events"
+          class="team-summary-value"
+        >
+          —
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="gc-status"
+      class="profiles-status"
+    >
+      Loading team statistics...
+    </div>
+
+
+    <div
+      id="gc-content"
+      hidden
+    >
+
+      <h4 class="profiles-subheading">
+        Team Profiles
+      </h4>
+
+      <div
+        id="gc-team-cards"
+        class="team-profile-grid"
+      ></div>
+
+
+      <h4 class="profiles-subheading">
+        All Team Statistics
+      </h4>
+
+
+      <div class="team-stats-table-wrap">
+
+        <table class="team-stats-table">
+
+          <thead>
+
+            <tr>
+              <th>Team</th>
+              <th>Division</th>
+              <th>Season</th>
+              <th>Record</th>
+              <th>GP</th>
+              <th>W</th>
+              <th>L</th>
+              <th>T</th>
+              <th>GF</th>
+              <th>GA</th>
+              <th>GD</th>
+              <th>GF/GP</th>
+              <th>GA/GP</th>
+              <th>Events</th>
+              <th>Last Tournament</th>
+            </tr>
+
+          </thead>
+
+          <tbody id="gc-table-body"></tbody>
+
+        </table>
+
+      </div>
+
+
+      <div
+        id="gc-last-updated"
+        class="team-stats-updated"
+      >
+        Waiting for data...
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       PLAYER PROFILES
+       ===================================================== -->
+
+  <section
+    id="playerProfilesSection"
+    class="profiles-section"
+  >
+
+    <div class="profiles-section-heading">
+
+      <h3>
+        Player Profiles
+      </h3>
+
+      <p>
+        View player statistics by career, season, or tournament.
+      </p>
+
+    </div>
+
+
+    <div class="player-profile-controls">
+
+      <div class="profile-control">
+
+        <label for="playerSelect">
+          Player
+        </label>
+
+        <select id="playerSelect"></select>
+
+      </div>
+
+
+      <div class="profile-control">
+
+        <label for="viewSelect">
+          View
+        </label>
+
+        <select id="viewSelect">
+
+          <option value="CAREER">
+            Career
+          </option>
+
+          <option value="YEAR">
+            Year
+          </option>
+
+          <option value="TOURNAMENT">
+            Tournament
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="profile-control">
+
+        <label for="yearSelect">
+          Year
+        </label>
+
+        <select id="yearSelect"></select>
+
+      </div>
+
+
+      <div class="profile-control">
+
+        <label for="tournamentSelect">
+          Tournament
+        </label>
+
+        <select id="tournamentSelect"></select>
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="loading"
+      class="profiles-status"
+    >
+      Loading player data...
+    </div>
+
+
+    <div
+      id="profileGrid"
+      class="player-profile-grid"
+      style="display:none;"
+    >
+
+
+      <article class="player-profile-card">
+
+        <h4 id="playerName">
+          Player
+        </h4>
+
+        <div class="player-stat-row">
+          <strong>Position</strong>
+          <span id="position"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Hand</strong>
+          <span id="hand"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong># of Games</strong>
+          <span id="games"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Team</strong>
+          <span id="team"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Last Updated</strong>
+          <span id="lastUpdated"></span>
+        </div>
+
+      </article>
+
+
+      <article class="player-profile-card years-card">
+
+        <h4>
+          Years Played
+        </h4>
+
+        <div
+          class="years-played-value"
+          id="yearsPlayed"
+        ></div>
+
+      </article>
+
+
+      <article class="player-profile-card">
+
+        <h4>
+          Offense
+        </h4>
+
+        <div class="player-stat-row">
+          <strong>Shots Attempted</strong>
+          <span id="shots"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Goals Scored</strong>
+          <span id="goals"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Shooting %</strong>
+          <span id="shootingPct"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Goal %</strong>
+          <span id="goalPct"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Goals/Game</strong>
+          <span id="goalsPerGame"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Shots/Game</strong>
+          <span id="shotsPerGame"></span>
+        </div>
+
+      </article>
+
+
+      <article class="player-profile-card">
+
+        <h4>
+          Defense
+        </h4>
+
+        <div class="player-stat-row">
+          <strong>Block Attempts</strong>
+          <span id="blocks"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Goals Allowed</strong>
+          <span id="goalsAllowed"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Blocks/Game</strong>
+          <span id="blocksPerGame"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Block %</strong>
+          <span id="blockPct"></span>
+        </div>
+
+      </article>
+
+
+      <article class="player-profile-card">
+
+        <h4>
+          Penalties
+        </h4>
+
+        <div class="player-stat-row">
+          <strong>Penalties Scored</strong>
+          <span id="penScored"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Penalties Allowed</strong>
+          <span id="penAllowed"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Most Common Penalty</strong>
+          <span id="commonPenalty"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Total Penalties</strong>
+          <span id="totalPenalties"></span>
+        </div>
+
+      </article>
+
+
+      <article class="player-profile-card">
+
+        <h4>
+          Profile Summary
+        </h4>
+
+        <div class="player-stat-row">
+          <strong>Current View</strong>
+          <span id="summaryView"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Selected Year</strong>
+          <span id="summaryYear"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Selected Tournament</strong>
+          <span id="summaryTournament"></span>
+        </div>
+
+        <div class="player-stat-row">
+          <strong>Total Rows Found</strong>
+          <span id="summaryRows"></span>
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+<footer>
+
+  <strong>
+    Goalball Central
+  </strong>
+
+  <span>
+    For John
+  </span>
+
+</footer>
+
+
+<script>
+const mobileMenuButton =
+  document.getElementById("mobileMenuButton");
+
+const mobileNav =
+  document.getElementById("mobileNav");
+
+if (mobileMenuButton && mobileNav) {
+  mobileMenuButton.addEventListener("click", () => {
+    mobileNav.classList.toggle("open");
+  });
+}
+
+
+const profileTabs =
+  document.querySelectorAll(
+    ".profiles-main-tab"
+  );
+
+const profileSections = {
+  teams:
+    document.getElementById(
+      "teamProfilesSection"
+    ),
+
+  players:
+    document.getElementById(
+      "playerProfilesSection"
+    )
+};
+
+
+profileTabs.forEach(button => {
+
+  button.addEventListener(
+    "click",
+    () => {
+
+      const target =
+        button.dataset.profileTab;
+
+
+      profileTabs.forEach(tab => {
+        tab.classList.remove("active");
+      });
+
+
+      button.classList.add("active");
+
+
+      Object.values(
+        profileSections
+      ).forEach(section => {
+        section.classList.remove("active");
+      });
+
+
+      if (
+        profileSections[target]
+      ) {
+        profileSections[target]
+          .classList.add("active");
+      }
+
+    }
+  );
+
+});
+</script>
+
+
+<script src="team-profiles.js"></script>
+<script src="player-profiles.js"></script>
+
+
+</body>
+
+</html>
