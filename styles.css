@@ -6444,7 +6444,7 @@ footer strong {
 
   width: 100%;
   max-width: none;
-  min-height: 330px;
+  min-height: 380px;
 
   margin: 0;
 
@@ -6539,38 +6539,35 @@ footer strong {
 
 
 /* =========================================================
-   INDIVIDUAL HERO IMAGE POSITIONS
-
-   Adjust ONLY these percentages when you want to move
-   a particular photograph.
+   DESKTOP HERO IMAGE POSITIONS
    ========================================================= */
 
 
 /* WATCH LIVE */
 
 .livestreaming-hero {
-  background-position: center 20% !important;
+  background-position: center 18% !important;
 }
 
 
 /* TOURNAMENT INFORMATION HUB */
 
 .tournament-hero {
-  background-position: center 40% !important;
+  background-position: center 35% !important;
 }
 
 
 /* TEAM & PLAYER PROFILES */
 
 .profiles-hero {
-  background-position: center 25% !important;
+  background-position: center 30% !important;
 }
 
 
 /* TEAM RANKINGS */
 
 .rankings-hero {
-  background-position: center 40% !important;
+  background-position: center 38% !important;
 }
 
 
@@ -6623,6 +6620,37 @@ footer strong {
     height: 3px;
 
     margin: 10px auto;
+  }
+
+
+  /* KEEP MOBILE CROPS SEPARATE */
+
+  .livestreaming-hero {
+    background-position: center 20% !important;
+  }
+
+  .tournament-hero {
+    background-position: center 40% !important;
+  }
+
+  .profiles-hero {
+    background-position: center 25% !important;
+  }
+
+  .rankings-hero {
+    background-position: center 40% !important;
+  }
+
+  .mobile-app-hero-image {
+    background-position: center 40% !important;
+  }
+
+  .resources-hero-image {
+    background-position: center 35% !important;
+  }
+
+  .rules-hero-image {
+    background-position: center 65% !important;
   }
 
 }
