@@ -6442,7 +6442,11 @@ footer strong {
 .page-hero {
   position: relative;
 
+  width: 100%;
+  max-width: none;
   min-height: 330px;
+
+  margin: 0;
 
   display: flex;
   align-items: center;
@@ -6454,6 +6458,11 @@ footer strong {
 
   overflow: hidden;
 }
+
+
+/* =========================================================
+   HERO DARK OVERLAY
+   ========================================================= */
 
 .page-hero-overlay {
   position: absolute;
@@ -6467,6 +6476,11 @@ footer strong {
     );
 }
 
+
+/* =========================================================
+   HERO TEXT CONTENT
+   ========================================================= */
+
 .page-hero-content {
   position: relative;
   z-index: 1;
@@ -6476,10 +6490,13 @@ footer strong {
   text-align: center;
 }
 
+
+/* HERO TITLE */
+
 .page-hero-content h1 {
   margin: 0;
 
-  color: #fff;
+  color: #ffffff;
 
   font-size: clamp(44px, 7vw, 76px);
   font-weight: 900;
@@ -6487,8 +6504,13 @@ footer strong {
   letter-spacing: 2px;
   text-transform: uppercase;
 
-  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.9);
+  text-shadow:
+    0 3px 15px
+    rgba(0, 0, 0, 0.9);
 }
+
+
+/* BLUE LINE */
 
 .page-hero-line {
   width: 180px;
@@ -6499,28 +6521,97 @@ footer strong {
   background: #00aaff;
 }
 
+
+/* HERO DESCRIPTION */
+
 .page-hero-content p {
   margin: 0;
 
-  color: #eee;
+  color: #eeeeee;
 
   font-size: 17px;
   font-weight: 600;
 
-  text-shadow: 0 2px 8px #000;
+  text-shadow:
+    0 2px 8px
+    rgba(0, 0, 0, 0.95);
 }
 
 
-/* MOBILE */
+/* =========================================================
+   INDIVIDUAL HERO IMAGE POSITIONS
+
+   Adjust ONLY these percentages when you want to move
+   a particular photograph.
+   ========================================================= */
+
+
+/* WATCH LIVE */
+
+.livestreaming-hero {
+  background-position: center 20% !important;
+}
+
+
+/* TOURNAMENT INFORMATION HUB */
+
+.tournament-hero {
+  background-position: center 40% !important;
+}
+
+
+/* TEAM & PLAYER PROFILES */
+
+.profiles-hero {
+  background-position: center 25% !important;
+}
+
+
+/* TEAM RANKINGS */
+
+.rankings-hero {
+  background-position: center 40% !important;
+}
+
+
+/* MOBILE APP */
+
+.mobile-app-hero-image {
+  background-position: center 40% !important;
+}
+
+
+/* GOALBALL RESOURCES */
+
+.resources-hero-image {
+  background-position: center 35% !important;
+}
+
+
+/* GOALBALL RULES */
+
+.rules-hero-image {
+  background-position: center 75% !important;
+}
+
+
+/* =========================================================
+   MOBILE HERO
+   ========================================================= */
 
 @media (max-width: 650px) {
 
   .page-hero {
-    min-height: 230px;
+    min-height: 220px;
+  }
+
+  .page-hero-content {
+    width: calc(100% - 30px);
   }
 
   .page-hero-content h1 {
-    font-size: 36px;
+    font-size: 34px;
+    letter-spacing: 1px;
   }
 
   .page-hero-content p {
@@ -6530,20 +6621,8 @@ footer strong {
   .page-hero-line {
     width: 110px;
     height: 3px;
+
+    margin: 10px auto;
   }
 
 }
-
-.livestreaming-hero {
-  background-position: 15% center !important;
-}
-
-/* HERO IMAGE CROP TUNING */
-/* Each page can frame its photo independently without changing the shared hero style. */
-.livestreaming-hero { background-position: left center !important; }
-.tournament-hero { background-position: center 45% !important; }
-.profiles-hero { background-position: center 42% !important; }
-.rankings-hero { background-position: center 38% !important; }
-.mobile-page-hero { background-position: center 45% !important; }
-.resources-hero { background-position: center center !important; }
-.rules-hero { background-position: center 42% !important; }
