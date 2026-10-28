@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goalball Scouting Program V4</title>
+<style>
+body{margin:0;background:#050505;color:white;font-family:Arial,sans-serif;text-align:center}
+.app{width:98%;max-width:1350px;margin:0 auto}
+h2{margin:6px 0}
+.panel{background:#151515;border:1px solid #333;border-radius:12px;padding:8px;margin:6px auto}
+.row{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:6px;margin:5px 0}
+.label-title{font-weight:bold;color:#00ffcc}
+input,select,textarea{padding:7px;text-align:center;border-radius:8px;border:1px solid #444;background:#222;color:white}
+textarea{width:260px;height:85px;text-align:left}
+.team-name{width:115px}.small-input{width:55px}.medium-input{width:105px}
+button{padding:9px 12px;border:none;border-radius:9px;background:#333;color:white;font-size:14px}
+button.active{background:#00ffcc;color:black;font-weight:bold}
+button.selected{background:#ffd400;color:black;font-weight:bold}
+button.danger{background:#741818}
+button.export{background:#1d6b3a}
+button.big{font-size:20px;padding:16px 20px;min-width:80px}
+.mode-btn{font-size:16px;padding:10px 18px}
+.main-grid{display:grid;grid-template-columns:2fr 1fr;gap:8px;align-items:start}
+#court{width:100%;height:390px;position:relative;background:#8cff4f;border:4px solid #00aeea;overflow:hidden;touch-action:none;box-sizing:border-box;cursor:crosshair}
+.center-area{position:absolute;left:35%;width:30%;top:0;bottom:0;background:#d019c9;border-left:6px solid white;border-right:6px solid white}
+.court-line{position:absolute;top:0;bottom:0;width:5px;background:white}
+.left-wing-line{left:20%}.left-high-line{left:35%}.mid-line{left:50%;background:rgba(255,255,255,.75)}.right-high-line{left:65%}.right-wing-line{left:80%}
+.goal-strip{position:absolute;top:0;bottom:0;width:38px;background:rgba(255,255,255,.92);display:grid;grid-template-rows:repeat(9,1fr);z-index:5;color:black;font-weight:bold;border-left:3px solid #00aeea;border-right:3px solid #00aeea}
+.left-strip{left:0}.right-strip{right:0}
+.goal-strip div{display:flex;align-items:center;justify-content:center;border-bottom:1px solid #aaa;font-size:16px;cursor:pointer}
+.goal-strip div:last-child{border-bottom:none}
+.zone-hit{background:#ffd400!important;outline:3px solid #000}
+.zone-start{background:#00ffcc!important;outline:3px solid #000}
+.side-label{position:absolute;font-style:italic;font-size:17px;color:#111;z-index:6}
+.left-top{left:45px;top:8px}.left-bottom{left:45px;bottom:8px}.right-top{right:45px;top:8px}.right-bottom{right:45px;bottom:8px}
+.center-left{left:5px;top:48%;transform:rotate(-90deg)}.center-right{right:5px;top:48%;transform:rotate(90deg)}
+.player{position:absolute;width:46px;height:46px;border-radius:50%;background:#111;border:3px solid white;color:white;display:flex;align-items:center;justify-content:center;font-weight:bold;transform:translate(-50%,-50%);z-index:10;cursor:pointer}
+.player.selected{background:#ffd400;color:#000;border-color:#000}
+.attack{left:13%}.defense{left:87%}.p1{top:20%}.p2{top:50%}.p3{top:80%}
+#throwLine{position:absolute;height:5px;background:yellow;transform-origin:0 50%;display:none;z-index:20;pointer-events:none}
+.stat-box,#livePlay{background:#111;border:1px solid #333;border-radius:12px;padding:9px;text-align:left;font-size:13px;line-height:1.45;margin-bottom:8px}
+#livePlay{border-left:5px solid #00ffcc}
+.stat-box strong,#livePlay strong{color:#00ffcc}
+.play-item{padding:6px 0;border-bottom:1px solid #252525}
+.small{color:#aaa;font-size:12px}
+.review-only{display:none}
+.bench-mode .review-only{display:none}
+.review-mode .review-only{display:block}
+.bench-mode .main-grid{grid-template-columns:1fr}
+.bench-mode #court{height:470px}
+.bench-mode .stat-box.compact{display:block}
+.bench-mode .stat-box:not(.compact){display:none}
+@media(max-width:900px){
+  .main-grid{grid-template-columns:1fr}
+  #court{height:330px}
+  .bench-mode #court{height:420px}
+}
+</style>
+</head>
+
+<body>
+<div class="app bench-mode" id="app">
+
+<h2>Goalball Scouting Program V4</h2>
+<p class="small">Matches save in this browser for your account. Use Download Match to keep a backup or move between devices.</p>
+
+<div class="panel">
+  <button class="mode-btn active" id="benchBtn" onclick="setMode('bench')">Bench Mode</button>
+  <button class="mode-btn" id="reviewBtn" onclick="setMode('review')">Review Mode</button>
+</div>
+
+<div class="panel review-only">
+  <div class="row">
+    <span class="label-title">Tournament</span><input id="tournament" class="medium-input" value="Tournament">
+    <span class="label-title">Date</span><input id="gameDate" class="medium-input" type="date">
+    <span class="label-title">Match</span><input id="matchName" class="medium-input" value="Game 1">
+    <span class="label-title">Half</span>
+    <select id="half"><option>1st Half</option><option>2nd Half</option><option>Overtime</option></select>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="row">
+    <span class="label-title">Home</span>
+    <input id="team1Name" class="team-name" value="Home">
+    <input id="score1" class="small-input" value="0">
+    <button onclick="addScore('team1')">+1</button>
+
+    <span class="label-title">Away</span>
+    <input id="team2Name" class="team-name" value="Away">
+    <input id="score2" class="small-input" value="0">
+    <button onclick="addScore('team2')">+1</button>
+  </div>
+</div>
+
+<div class="panel review-only">
+  <div class="row">
+    <div>
+      <div class="label-title">Home Roster</div>
+      <textarea id="team1Roster">Thomas Rice
+Jordan Main
+Andy Jeniks
+Zachary Buhler</textarea>
+    </div>
+    <div>
+      <div class="label-title">Away Roster</div>
+      <textarea id="team2Roster">John Example
+John Doe
+Callahan Young
+Christian King</textarea>
+    </div>
+    <button class="export" onclick="refreshRosterDropdowns()">Update Rosters</button>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="row">
+    <span class="label-title">Home Active</span>
+    <select id="team1p1"></select>
+    <select id="team1p2"></select>
+    <select id="team1p3"></select>
+
+    <span class="label-title">Away Active</span>
+    <select id="team2p1"></select>
+    <select id="team2p2"></select>
+    <select id="team2p3"></select>
+  </div>
+  <div class="small">Substitution tip: change the active lineup dropdowns. Previous players keep their saved stats.</div>
+</div>
+
+<div class="panel tracking-controls">
+  <div class="row">
+    <span class="label-title">Possession</span>
+    <button id="team1Btn" onclick="setPossession('team1')"></button>
+    <button id="team2Btn" onclick="setPossession('team2')"></button>
+
+    <span class="label-title">Auto Switch</span>
+    <button id="autoSwitchBtn" onclick="toggleAutoSwitch()">ON</button>
+
+    <span class="label-title">Auto Defender</span>
+    <button id="autoDefenderBtn" onclick="toggleAutoDefender()">ON</button>
+  </div>
+
+  <div class="row">
+    <span class="label-title">Thrower</span>
+    <button class="big" id="throwBtn1" onclick="selectThrower(0)"></button>
+    <button class="big" id="throwBtn2" onclick="selectThrower(1)"></button>
+    <button class="big" id="throwBtn3" onclick="selectThrower(2)"></button>
+
+    <span class="label-title">Defender</span>
+    <button class="big" id="defBtn1" onclick="selectDefender(0)"></button>
+    <button class="big" id="defBtn2" onclick="selectDefender(1)"></button>
+    <button class="big" id="defBtn3" onclick="selectDefender(2)"></button>
+  </div>
+
+  <div class="row">
+    <span class="label-title">Result</span>
+    <button class="big" id="resGoal" onclick="setResult('Goal')">Goal</button>
+    <button class="big" id="resBlocked" onclick="setResult('Blocked')">Blocked</button>
+    <button class="big" id="resOut" onclick="setResult('Out')">Out</button>
+    <button class="big" id="resPenalty" onclick="setResult('Penalty')">Penalty</button>
+    <button onclick="clearPlaySelection()">Clear</button>
+    <button onclick="undo()">Undo</button>
+  </div>
+
+  <div class="row review-only">
+    <button class="export" onclick="saveMatch()">Save Match</button>
+    <button class="export" onclick="loadMatch()">Load Match</button>
+    <button class="export" onclick="downloadMatch()">Download Match</button>
+    <button class="export" onclick="document.getElementById('matchFile').click()">Import Match</button>
+    <input id="matchFile" type="file" accept=".json,application/json" hidden onchange="importMatch(this)">
+    <button class="export" onclick="exportCSV()">Export CSV</button>
+    <button class="export" onclick="exportReport()">Scouting Report</button>
+    <button class="danger" onclick="resetGame()">Reset Game</button>
+  </div>
+</div>
+
+<div class="main-grid">
+  <div>
+    <div id="court">
+      <div class="center-area"></div>
+      <div class="court-line left-wing-line"></div>
+      <div class="court-line left-high-line"></div>
+      <div class="court-line mid-line"></div>
+      <div class="court-line right-high-line"></div>
+      <div class="court-line right-wing-line"></div>
+
+      <div class="goal-strip left-strip" id="leftStrip">
+        <div data-zone="1">1</div><div data-zone="2">2</div><div data-zone="3">3</div><div data-zone="4">4</div><div data-zone="5">5</div><div data-zone="6">6</div><div data-zone="7">7</div><div data-zone="8">8</div><div data-zone="9">9</div>
+      </div>
+
+      <div class="goal-strip right-strip" id="rightStrip">
+        <div data-zone="1">1</div><div data-zone="2">2</div><div data-zone="3">3</div><div data-zone="4">4</div><div data-zone="5">5</div><div data-zone="6">6</div><div data-zone="7">7</div><div data-zone="8">8</div><div data-zone="9">9</div>
+      </div>
+
+      <div class="side-label left-top">Left Wing</div>
+      <div class="side-label left-bottom">Right Wing</div>
+      <div class="side-label right-top">Right Wing</div>
+      <div class="side-label right-bottom">Left Wing</div>
+      <div class="side-label center-left">Centre</div>
+      <div class="side-label center-right">Centre</div>
+
+      <div id="throwLine"></div>
+    </div>
+  </div>
+
+  <div>
+    <div id="livePlay">
+      <strong>Current Selection</strong><br>
+      <span id="currentSelection"></span>
+    </div>
+
+    <div class="stat-box compact">
+      <strong>Bench Quick Stats</strong>
+      <div id="benchStats"></div>
+    </div>
+
+    <div class="stat-box compact">
+      <strong>Who’s Hot</strong>
+      <div id="hotStats"></div>
+    </div>
+
+    <div class="stat-box review-only">
+      <strong>Thrower Stats</strong>
+      <div id="throwerStats"></div>
+    </div>
+
+    <div class="stat-box review-only">
+      <strong>Defender Stats</strong>
+      <div id="defenderStats"></div>
+    </div>
+
+    <div class="stat-box review-only">
+      <strong>Team Zone Summary</strong>
+      <div id="teamZoneStats"></div>
+    </div>
+
+    <div class="stat-box review-only">
+      <strong>Zone Hit Totals</strong>
+      <div id="zoneStats"></div>
+    </div>
+
+    <div class="stat-box review-only">
+      <strong>Recent Plays</strong>
+      <div id="log"></div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+let mode="bench", possession="team1", thrower=null, defender=null, result=null;
+let startX=null,startY=null,pendingEndX=null,pendingEndY=null;
+let offensiveZone=null, defensiveZone=null, tapStartSide=null, tapEndSide=null;
+let selectingOffenseZone=true;
+let plays=[], autoSwitch=true, autoDefender=true, persistenceReady=false;
+
+const app=document.getElementById("app");
+const court=document.getElementById("court");
+const throwLine=document.getElementById("throwLine");
+
+document.getElementById("gameDate").valueAsDate=new Date();
+
+function initials(name){
+  return String(name||"?").trim().split(/\s+/).map(p=>p[0]).join("").slice(0,3).toUpperCase()||"?";
+}
+
+function getRoster(team){
+  const id=team==="team1"?"team1Roster":"team2Roster";
+  return document.getElementById(id).value.split("\n").map(x=>x.trim()).filter(Boolean);
+}
+
+function fillSelect(id, roster, selected){
+  const sel=document.getElementById(id);
+  sel.innerHTML=roster.map(name=>`<option value="${escapeHtml(name)}">${escapeHtml(name)}</option>`).join("");
+  if(selected&&roster.includes(selected)) sel.value=selected;
+  else if(roster[0]) sel.value=roster[0];
+}
+
+function refreshRosterDropdowns(){
+  const home=getRoster("team1"), away=getRoster("team2");
+
+  fillSelect("team1p1",home,document.getElementById("team1p1").value||home[0]);
+  fillSelect("team1p2",home,document.getElementById("team1p2").value||home[1]);
+  fillSelect("team1p3",home,document.getElementById("team1p3").value||home[2]);
+
+  fillSelect("team2p1",away,document.getElementById("team2p1").value||away[0]);
+  fillSelect("team2p2",away,document.getElementById("team2p2").value||away[1]);
+  fillSelect("team2p3",away,document.getElementById("team2p3").value||away[2]);
+
+  saveMatch(false);
+  updateUI();
+}
+
+function setMode(m){
+  mode=m;
+  app.className="app "+(m==="bench"?"bench-mode":"review-mode");
+  document.getElementById("benchBtn").classList.toggle("active",m==="bench");
+  document.getElementById("reviewBtn").classList.toggle("active",m==="review");
+  updateUI();
+}
+
+function getTeamName(t){
+  return document.getElementById(t+"Name").value||t;
+}
+
+function getPlayers(t){
+  return[
+    document.getElementById(t+"p1").value||"?",
+    document.getElementById(t+"p2").value||"?",
+    document.getElementById(t+"p3").value||"?"
+  ];
+}
+
+function otherTeam(t){
+  return t==="team1"?"team2":"team1";
+}
+
+function setPossession(t){
+  possession=t;
+  clearPlaySelection(false);
+  updateUI();
+}
+
+function toggleAutoSwitch(){
+  autoSwitch=!autoSwitch;
+  saveMatch(false);
+  updateUI();
+}
+
+function toggleAutoDefender(){
+  autoDefender=!autoDefender;
+  saveMatch(false);
+  updateUI();
+}
+
+function selectThrower(i){
+  thrower=getPlayers(possession)[i];
+  if(tryAutoSaveTapPlay()) return;
+  updateUI();
+}
+
+function selectDefender(i){
+  defender=getPlayers(otherTeam(possession))[i];
+  if(tryAutoSaveTapPlay()) return;
+  updateUI();
+}
+
+function setResult(r){
+  result=r;
+
+  if(pendingEndX!==null&&pendingEndY!==null){
+    savePlay(r);
+    return;
+  }
+
+  if(tryAutoSaveTapPlay()) return;
+
+  updateUI();
+}
+
+function selectCourtZone(zone,side){
+  if(selectingOffenseZone || !offensiveZone){
+    offensiveZone=zone;
+    tapStartSide=side;
+    selectingOffenseZone=false;
+    highlightZones();
+  } else {
+    defensiveZone=zone;
+    tapEndSide=side;
+    if(autoDefender) defender=getAutoDefenderByZone(zone);
+    highlightZones();
+    selectingOffenseZone=true;
+  }
+
+  if(tryAutoSaveTapPlay()) return;
+  updateUI();
+}
+
+function tryAutoSaveTapPlay(){
+  if(!thrower||!offensiveZone||!defensiveZone||!result) return false;
+  if(!autoDefender&&!defender) return false;
+
+  saveTapPlay();
+  return true;
+}
+
+function saveTapPlay(){
+  if(autoDefender) defender=getAutoDefenderByZone(defensiveZone);
+
+  plays.push(makePlay(offensiveZone,defensiveZone,tapEndSide||"tap",result));
+
+  if(result==="Goal") addScore(possession,false);
+
+  finishPlay();
+}
+
+function makePlay(startZone,endZone,hitSide,playResult){
+  return{
+    tournament:document.getElementById("tournament").value,
+    date:document.getElementById("gameDate").value,
+    match:document.getElementById("matchName").value,
+    half:document.getElementById("half").value,
+    score:document.getElementById("score1").value+"-"+document.getElementById("score2").value,
+    throwingTeam:getTeamName(possession),
+    defendingTeam:getTeamName(otherTeam(possession)),
+    thrower,
+    throwerInitials:initials(thrower),
+    defender,
+    defenderInitials:initials(defender),
+    startZone,
+    endZone,
+    hitSide,
+    result:playResult
+  };
+}
+
+function finishPlay(){
+  if(autoSwitch) possession=otherTeam(possession);
+  clearPlaySelection(false);
+  saveMatch(false);
+  updateUI();
+}
+
+function clearPlaySelection(refresh=true){
+  thrower=null;
+  defender=null;
+  result=null;
+  offensiveZone=null;
+  defensiveZone=null;
+  tapStartSide=null;
+  tapEndSide=null;
+  selectingOffenseZone=true;
+  pendingEndX=null;
+  pendingEndY=null;
+  throwLine.style.display="none";
+  clearZoneHighlights();
+  if(refresh) updateUI();
+}
+
+function addScore(team,refresh=true){
+  const id=team==="team1"?"score1":"score2";
+  document.getElementById(id).value=parseInt(document.getElementById(id).value||0)+1;
+  saveMatch(false);
+  if(refresh) updateUI();
+}
+
+function updateUI(){
+  document.getElementById("team1Btn").innerText=getTeamName("team1")+" Throwing";
+  document.getElementById("team2Btn").innerText=getTeamName("team2")+" Throwing";
+
+  document.getElementById("team1Btn").classList.toggle("active",possession==="team1");
+  document.getElementById("team2Btn").classList.toggle("active",possession==="team2");
+
+  document.getElementById("autoSwitchBtn").innerText=autoSwitch?"ON":"OFF";
+  document.getElementById("autoSwitchBtn").classList.toggle("active",autoSwitch);
+
+  document.getElementById("autoDefenderBtn").innerText=autoDefender?"ON":"OFF";
+  document.getElementById("autoDefenderBtn").classList.toggle("active",autoDefender);
+
+  const throwers=getPlayers(possession), defenders=getPlayers(otherTeam(possession));
+
+  ["throwBtn1","throwBtn2","throwBtn3"].forEach((id,i)=>{
+    const b=document.getElementById(id);
+    b.innerText=initials(throwers[i]);
+    b.title=throwers[i];
+    b.classList.toggle("selected",thrower===throwers[i]);
+  });
+
+  ["defBtn1","defBtn2","defBtn3"].forEach((id,i)=>{
+    const b=document.getElementById(id);
+    b.innerText=initials(defenders[i]);
+    b.title=defenders[i];
+    b.classList.toggle("selected",defender===defenders[i]);
+  });
+
+  ["Goal","Blocked","Out","Penalty"].forEach(r=>{
+    document.getElementById("res"+r).classList.toggle("selected",result===r);
+  });
+
+  drawPlayers();
+  updateCurrentSelection();
+  updateStats();
+  updateLog();
+}
+
+function updateCurrentSelection(){
+  const lineReady=pendingEndX!==null&&pendingEndY!==null?" | Line: ready":" | Line: draw or tap zones";
+  document.getElementById("currentSelection").innerText=
+    `${getTeamName(possession)} throwing | Thrower: ${thrower||"none"} | Defender: ${autoDefender?"auto":(defender||"none")} | Offensive Zone: ${offensiveZone||"none"} | Defensive Zone: ${defensiveZone||"none"} | Result: ${result||"none"}${lineReady}`;
+}
+
+function drawPlayers(){
+  document.querySelectorAll(".player").forEach(p=>p.remove());
+
+  getPlayers(possession).forEach((n,i)=>createPlayer(n,"attack","p"+(i+1)));
+  getPlayers(otherTeam(possession)).forEach((n,i)=>createPlayer(n,"defense","p"+(i+1)));
+}
+
+function createPlayer(name,side,pos){
+  const el=document.createElement("div");
+  el.className="player "+side+" "+pos;
+
+  if((side==="attack"&&thrower===name)||(side==="defense"&&defender===name)){
+    el.classList.add("selected");
+  }
+
+  el.innerText=initials(name);
+  el.title=name;
+  el.setAttribute("role","button");
+  el.setAttribute("tabindex","0");
+  el.setAttribute("aria-label",side==="attack"?"Select thrower "+name:"Select defender "+name);
+
+  ["pointerdown","pointerup"].forEach(evt=>{
+    el.addEventListener(evt,e=>{e.stopPropagation();});
+  });
+
+  el.addEventListener("click",e=>{
+    e.stopPropagation();
+    if(side==="attack") thrower=name;
+    else defender=name;
+
+    if(tryAutoSaveTapPlay()) return;
+    updateUI();
+  });
+
+  el.addEventListener("keydown",e=>{
+    if(e.key==="Enter"||e.key===" "){
+      e.preventDefault();
+      el.click();
+    }
+  });
+
+  court.appendChild(el);
+}
+
+function getGoalZone(y,rect){
+  const rel=(y-rect.top)/rect.height;
+  let z=Math.floor(rel*9)+1;
+  return Math.max(1,Math.min(9,z));
+}
+
+function getAutoDefenderByZone(z){
+  const defenders=getPlayers(otherTeam(possession));
+  if(z<=3) return defenders[0];
+  if(z<=6) return defenders[1];
+  return defenders[2];
+}
+
+court.addEventListener("pointerdown",e=>{
+  startX=e.clientX;
+  startY=e.clientY;
+  court.setPointerCapture(e.pointerId);
+});
+
+court.addEventListener("pointerup",e=>{
+  if(!thrower){
+    alert("Select thrower first.");
+    return;
+  }
+
+  if(!autoDefender&&!defender){
+    alert("Select defender or turn Auto Defender ON.");
+    return;
+  }
+
+  pendingEndX=e.clientX;
+  pendingEndY=e.clientY;
+
+  const rect=court.getBoundingClientRect();
+
+  offensiveZone=getGoalZone(startY,rect);
+  defensiveZone=getGoalZone(pendingEndY,rect);
+
+  const hitSide=pendingEndX<rect.left+rect.width/2?"left":"right";
+
+  if(autoDefender) defender=getAutoDefenderByZone(defensiveZone);
+
+  drawThrowLine(startX-rect.left,startY-rect.top,pendingEndX-rect.left,pendingEndY-rect.top);
+  highlightZones(hitSide);
+
+  result=null;
+  updateUI();
+});
+
+function savePlay(playResult){
+  const rect=court.getBoundingClientRect();
+
+  const startZone=offensiveZone||getGoalZone(startY,rect);
+  const endZone=defensiveZone||getGoalZone(pendingEndY,rect);
+  const hitSide=pendingEndX<rect.left+rect.width/2?"left":"right";
+
+  if(autoDefender) defender=getAutoDefenderByZone(endZone);
+
+  plays.push(makePlay(startZone,endZone,hitSide,playResult));
+
+  if(playResult==="Goal") addScore(possession,false);
+
+  finishPlay();
+}
+
+function drawThrowLine(x1,y1,x2,y2){
+  const len=Math.hypot(x2-x1,y2-y1);
+  const ang=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+
+  throwLine.style.display="block";
+  throwLine.style.left=x1+"px";
+  throwLine.style.top=y1+"px";
+  throwLine.style.width=len+"px";
+  throwLine.style.transform=`rotate(${ang}deg)`;
+}
+
+function clearZoneHighlights(){
+  document.querySelectorAll(".goal-strip div").forEach(z=>{
+    z.classList.remove("zone-hit","zone-start");
+  });
+}
+
+function highlightZones(forcedEndSide=null){
+  clearZoneHighlights();
+
+  if(offensiveZone){
+    document.querySelectorAll(`.goal-strip div[data-zone="${offensiveZone}"]`).forEach(z=>{
+      z.classList.add("zone-start");
+    });
+  }
+
+  if(defensiveZone){
+    let side=forcedEndSide||tapEndSide;
+    let strip=side==="left"?document.getElementById("leftStrip"):side==="right"?document.getElementById("rightStrip"):null;
+
+    if(strip){
+      const target=strip.querySelector(`[data-zone="${defensiveZone}"]`);
+      if(target) target.classList.add("zone-hit");
+    } else {
+      document.querySelectorAll(`.goal-strip div[data-zone="${defensiveZone}"]`).forEach(z=>{
+        z.classList.add("zone-hit");
+      });
+    }
+  }
+}
+
+function highlightZone(zone,side){
+  defensiveZone=zone;
+  tapEndSide=side;
+  highlightZones(side);
+}
+
+function undo(){
+  const last=plays.pop();
+
+  if(last && last.result==="Goal"){
+    if(last.throwingTeam===getTeamName("team1")){
+      document.getElementById("score1").value=Math.max(0,Number(document.getElementById("score1").value||0)-1);
+    } else if(last.throwingTeam===getTeamName("team2")){
+      document.getElementById("score2").value=Math.max(0,Number(document.getElementById("score2").value||0)-1);
+    }
+  }
+
+  clearPlaySelection(false);
+  saveMatch(false);
+  updateUI();
+}
+
+function resetGame(){
+  if(!confirm("Reset game? This will clear plays, score, and return teams to Home/Away.")) return;
+
+  plays=[];
+  possession="team1";
+
+  document.getElementById("team1Name").value="Home";
+  document.getElementById("team2Name").value="Away";
+  document.getElementById("score1").value=0;
+  document.getElementById("score2").value=0;
+
+  throwLine.style.display="none";
+  clearPlaySelection(false);
+  saveMatch(false);
+  updateUI();
+}
+
+function updateStats(){
+  updateBenchStats();
+  updateHotStats();
+  updateThrowerStats();
+  updateDefenderStats();
+  updateZoneStats();
+  updateTeamZoneStats();
+}
+
+function updateBenchStats(){
+  let html=`${escapeHtml(getTeamName("team1"))} ${document.getElementById("score1").value} - ${document.getElementById("score2").value} ${escapeHtml(getTeamName("team2"))}<br>Plays: ${plays.length}<br>`;
+  const last=plays[plays.length-1];
+
+  html+=last?`<strong>Last:</strong> ${escapeHtml(last.result)} | ${escapeHtml(last.throwingTeam)} ${escapeHtml(initials(last.thrower))} | Z${last.startZone}→Z${last.endZone}`:`No plays yet.`;
+
+  document.getElementById("benchStats").innerHTML=html;
+}
+
+function updateHotStats(){
+  const stats=Object.create(null);
+
+  plays.forEach(p=>{
+    const key=p.throwingTeam+" | "+p.thrower;
+
+    if(!stats[key]) stats[key]={throws:0,goals:0,zones:{}};
+
+    stats[key].throws++;
+    if(p.result==="Goal") stats[key].goals++;
+    stats[key].zones[p.endZone]=(stats[key].zones[p.endZone]||0)+1;
+  });
+
+  let bestPlayer=null,bestScore=-1;
+
+  Object.keys(stats).forEach(player=>{
+    const s=stats[player];
+    const rate=s.throws?s.goals/s.throws:0;
+    const score=s.goals*2+rate;
+
+    if(s.throws>=2&&score>bestScore){
+      bestScore=score;
+      bestPlayer=player;
+    }
+  });
+
+  if(!bestPlayer){
+    document.getElementById("hotStats").innerHTML=`<span class="small">Need at least 2 throws.</span>`;
+    return;
+  }
+
+  const s=stats[bestPlayer];
+  const pct=Math.round((s.goals/s.throws)*100);
+
+  document.getElementById("hotStats").innerHTML=
+    `${escapeHtml(bestPlayer)}<br>${s.goals}/${s.throws} goals (${pct}%)<br>Favorite zone: ${topZone(s.zones)}`;
+}
+
+function updateThrowerStats(){
+  const stats=Object.create(null);
+
+  plays.forEach(p=>{
+    const k=p.throwingTeam+" | "+p.thrower;
+
+    if(!stats[k]) stats[k]={throws:0,goals:0,blocked:0,out:0,penalty:0,zones:{}};
+
+    const s=stats[k];
+    s.throws++;
+    if(p.result==="Goal") s.goals++;
+    if(p.result==="Blocked") s.blocked++;
+    if(p.result==="Out") s.out++;
+    if(p.result==="Penalty") s.penalty++;
+    s.zones[p.endZone]=(s.zones[p.endZone]||0)+1;
+  });
+
+  let html="";
+
+  Object.keys(stats).forEach(k=>{
+    const s=stats[k];
+    const pct=s.throws?Math.round((s.goals/s.throws)*100):0;
+    html+=`${escapeHtml(k)}: ${s.throws} throws | ${s.goals} goals (${pct}%) | favorite zone: ${topZone(s.zones)}<br>`;
+  });
+
+  document.getElementById("throwerStats").innerHTML=html||`<span class="small">No throws yet.</span>`;
+}
+
+function updateDefenderStats(){
+  const stats=Object.create(null);
+
+  plays.forEach(p=>{
+    const k=p.defendingTeam+" | "+p.defender;
+
+    if(!stats[k]) stats[k]={defended:0,goalsAllowed:0,blocks:0,zones:{}};
+
+    const s=stats[k];
+    s.defended++;
+    if(p.result==="Goal") s.goalsAllowed++;
+    if(p.result==="Blocked") s.blocks++;
+    s.zones[p.endZone]=(s.zones[p.endZone]||0)+1;
+  });
+
+  let html="";
+
+  Object.keys(stats).forEach(k=>{
+    const s=stats[k];
+    html+=`${escapeHtml(k)}: ${s.defended} defended | ${s.goalsAllowed} goals allowed | ${s.blocks} blocks | most hit zone: ${topZone(s.zones)}<br>`;
+  });
+
+  document.getElementById("defenderStats").innerHTML=html||`<span class="small">No defensive data yet.</span>`;
+}
+
+function updateZoneStats(){
+  const z={};
+
+  for(let i=1;i<=9;i++) z[i]=0;
+
+  plays.forEach(p=>z[p.endZone]++);
+
+  document.getElementById("zoneStats").innerHTML=
+    Object.keys(z).map(i=>`Zone ${i}: ${z[i]} hits`).join("<br>");
+}
+
+function updateTeamZoneStats(){
+  const teams=Object.create(null);
+
+  plays.forEach(p=>{
+    if(!teams[p.throwingTeam]) teams[p.throwingTeam]={};
+    teams[p.throwingTeam][p.endZone]=(teams[p.throwingTeam][p.endZone]||0)+1;
+  });
+
+  let html="";
+
+  Object.keys(teams).forEach(t=>{
+    html+=`${escapeHtml(t)}: targets Zone ${topZone(teams[t])} most<br>`;
+  });
+
+  document.getElementById("teamZoneStats").innerHTML=html||`<span class="small">No team data yet.</span>`;
+}
+
+function topZone(obj){
+  let best="-",count=0;
+
+  Object.keys(obj).forEach(k=>{
+    if(obj[k]>count){
+      best=k;
+      count=obj[k];
+    }
+  });
+
+  return best;
+}
+
+function updateLog(){
+  const log=document.getElementById("log");
+
+  if(!plays.length){
+    log.innerHTML=`<span class="small">No plays recorded yet.</span>`;
+    return;
+  }
+
+  log.innerHTML="";
+
+  plays.slice(-8).reverse().forEach(p=>{
+    log.innerHTML+=`
+      <div class="play-item">
+        <strong>${escapeHtml(p.result)}</strong> — ${escapeHtml(p.throwingTeam)} ${escapeHtml(p.thrower)}
+        <br>
+        <span class="small">vs ${escapeHtml(p.defendingTeam)} ${escapeHtml(p.defender)} | Zone ${p.startZone} → ${p.endZone} | ${escapeHtml(p.half)}</span>
+      </div>
+    `;
+  });
+}
+
+function saveMatch(showAlert=true){
+  if(!persistenceReady) return;
+  try {
+  localStorage.setItem((window.GOALBALL_STORAGE_KEY || "goalballScoutingProgramNamesV1"),JSON.stringify({
+    plays, possession,
+    autoSwitch,
+    autoDefender,
+    settings:getSettings()
+  }));
+
+  if(showAlert) alert("Match saved locally.");
+  } catch (_) { alert("This browser could not save your match. Use Download Match to keep a backup."); }
+}
+
+function loadMatch(){
+  let raw;
+  try { raw=localStorage.getItem((window.GOALBALL_STORAGE_KEY || "goalballScoutingProgramNamesV1")); } catch (_) { alert("Local storage is unavailable. Import a downloaded match instead."); return; }
+
+  if(!raw){
+    alert("No saved match found.");
+    return;
+  }
+
+  let data;
+  try { data=validateMatch(JSON.parse(raw)); } catch (_) { alert("The saved match could not be read. Import a backup instead."); return; }
+
+  plays=data.plays||[];
+  possession=data.possession === "team2" ? "team2" : "team1";
+  autoSwitch=data.autoSwitch??true;
+  autoDefender=data.autoDefender??true;
+
+  applySettings(data.settings||{});
+  refreshRosterDropdowns();
+  applySettings(data.settings||{});
+  clearPlaySelection(false);
+  saveMatch(false);
+  updateUI();
+
+  alert("Match loaded.");
+}
+
+function validateMatch(data){
+  if(!data || !Array.isArray(data.plays) || !data.settings || typeof data.settings !== "object") throw new Error("Invalid match");
+  if(data.plays.length > 100000) throw new Error("Match too large");
+  for(const p of data.plays){
+    if(!p || !["Goal","Blocked","Out","Penalty"].includes(p.result) || !Number.isInteger(p.startZone) || !Number.isInteger(p.endZone) || p.startZone<1 || p.startZone>9 || p.endZone<1 || p.endZone>9) throw new Error("Invalid play");
+    for(const field of ["throwingTeam","defendingTeam","thrower","defender","half"]) if(typeof p[field] !== "string") throw new Error("Invalid play");
+  }
+  return data;
+}
+function downloadMatch(){
+  downloadFile("goalball-match.json",JSON.stringify({plays,possession,autoSwitch,autoDefender,settings:getSettings()},null,2),"application/json");
+}
+async function importMatch(input){
+  try {
+    const file=input.files[0]; if(!file) return;
+    if(file.size>10000000) throw new Error("File too large");
+    const data=validateMatch(JSON.parse(await file.text()));
+    if(!confirm("Replace the current match with this file?")) return;
+    plays=data.plays; autoSwitch=data.autoSwitch??true; autoDefender=data.autoDefender??true;
+    possession=data.possession === "team2" ? "team2" : "team1";
+    applySettings(data.settings); refreshRosterDropdowns(); applySettings(data.settings); clearPlaySelection(); updateUI(); saveMatch(false);
+  } catch (_) { alert("Unable to import this match. Choose a Goalball match JSON file under 10 MB."); }
+  finally { input.value=""; }
+}
+function getSettings(){
+  const ids=[
+    "tournament","gameDate","matchName","half",
+    "score1","score2","team1Name","team2Name",
+    "team1Roster","team2Roster",
+    "team1p1","team1p2","team1p3",
+    "team2p1","team2p2","team2p3"
+  ];
+
+  const o={};
+
+  ids.forEach(id=>o[id]=document.getElementById(id).value);
+
+  return o;
+}
+
+function applySettings(o){
+  Object.keys(getSettings()).forEach(id=>{
+    if(Object.hasOwn(o,id)) document.getElementById(id).value=String(o[id]);
+  });
+}
+
+function exportCSV(){
+  if(!plays.length){
+    alert("No plays to export.");
+    return;
+  }
+
+  const headers=[
+    "Tournament","Date","Match","Half","Score",
+    "Throwing Team","Thrower","Thrower Initials",
+    "Defending Team","Defender","Defender Initials",
+    "Offensive Zone","Defensive Zone","Hit Side","Result"
+  ];
+
+  const rows=plays.map(p=>[
+    p.tournament,p.date,p.match,p.half,p.score,
+    p.throwingTeam,p.thrower,p.throwerInitials,
+    p.defendingTeam,p.defender,p.defenderInitials,
+    p.startZone,p.endZone,p.hitSide,p.result
+  ]);
+
+  downloadFile("goalball-scouting-names-export.csv",toCSV([headers,...rows]),"text/csv");
+}
+
+function exportReport(){
+  let report=`Goalball Scouting Program Report\n\n`;
+  report+=`Match: ${document.getElementById("matchName").value}\n`;
+  report+=`Score: ${document.getElementById("score1").value}-${document.getElementById("score2").value}\n`;
+  report+=`Total Plays: ${plays.length}\n\n`;
+  report+=`Thrower Stats:\n${document.getElementById("throwerStats").innerText}\n\n`;
+  report+=`Defender Stats:\n${document.getElementById("defenderStats").innerText}\n\n`;
+  report+=`Team Zone Summary:\n${document.getElementById("teamZoneStats").innerText}\n\n`;
+  report+=`Zone Hit Totals:\n${document.getElementById("zoneStats").innerText}\n`;
+
+  downloadFile("goalball-scouting-report.txt",report,"text/plain");
+}
+
+function toCSV(rows){
+  return rows.map(r=>r.map(v=>`"${String(/^[=+@\-\t\r]/.test(String(v??"")) ? "'"+v : v??"").replaceAll('"','""')}"`).join(",")).join("\n");
+}
+
+function downloadFile(name,content,type){
+  const blob=new Blob([content],{type});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+
+  a.href=url;
+  a.download=name;
+  a.click();
+
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
+function escapeHtml(v){
+  return String(v??"")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+function setupCourtTapClicks(){
+  document.querySelectorAll(".goal-strip div").forEach(zoneEl=>{
+    zoneEl.setAttribute("role","button");
+    zoneEl.setAttribute("tabindex","0");
+    zoneEl.setAttribute("aria-label","Select zone "+zoneEl.dataset.zone);
+
+    ["pointerdown","pointerup"].forEach(evt=>{
+      zoneEl.addEventListener(evt,e=>{e.stopPropagation();});
+    });
+
+    zoneEl.addEventListener("click",e=>{
+      e.stopPropagation();
+      const side=zoneEl.closest(".left-strip")?"left":"right";
+      selectCourtZone(Number(zoneEl.dataset.zone),side);
+    });
+
+    zoneEl.addEventListener("keydown",e=>{
+      if(e.key==="Enter"||e.key===" "){
+        e.preventDefault();
+        zoneEl.click();
+      }
+    });
+  });
+}
+
+document.querySelectorAll("input,select,textarea").forEach(i=>{
+  i.oninput=()=>{
+    saveMatch(false);
+    updateUI();
+  };
+});
+
+setupCourtTapClicks();
+// Restore before the first roster refresh, which otherwise overwrites the previous save.
+try {
+  const raw=localStorage.getItem(window.GOALBALL_STORAGE_KEY || "goalballScoutingProgramNamesV1");
+  if(raw){
+    const data=validateMatch(JSON.parse(raw));
+    plays=data.plays; autoSwitch=data.autoSwitch??true; autoDefender=data.autoDefender??true;
+    possession=data.possession === "team2" ? "team2" : "team1";
+    applySettings(data.settings); refreshRosterDropdowns(); applySettings(data.settings);
+  }
+} catch (_) {
+  alert("The previous match could not be restored. Import a downloaded backup if you have one.");
+}
+refreshRosterDropdowns();
+persistenceReady=true;
+setMode("bench");
+updateUI();
+</script>
+</body>
+</html>

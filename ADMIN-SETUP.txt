@@ -1,0 +1,134 @@
+GOALBALL CENTRAL — WEBSITE ADMIN INTEGRATION
+
+Status
+The website code is implemented. Firebase login uses the existing app project.
+GitHub Pages publication follows this repository's deployment configuration.
+Scouting works after
+sign-in and keeps matches in this browser, separately for each Firebase UID.
+Final score and pool writes are deliberately disabled until the protected
+Apps Script endpoint is installed and configured. No live scores were changed.
+
+What changed
+- Admin Login links in desktop and mobile navigation on every existing page.
+- /admin/ has Firebase email/password login, sign-out, final score entry with
+  tournament/search/unfinished filters, scouting, and pool updates.
+- Scouting retains the original app's court, bench/review modes, player and
+  defender statistics, undo, CSV export, and text scouting reports.
+- Matches now restore on reload. JSON downloads/imports let you keep backups
+  or move a match between browsers. App device saves do not automatically sync.
+- The bundled scouting HTML is public source code, as are all files on a static
+  GitHub Pages site. The login gates the admin interface; the server guard
+  separately protects writes. Do not put private records in the repository.
+
+1. Check Firebase
+Open the goalball-central-app Firebase project, Authentication > Settings >
+Authorized domains. Check goalballcentral.net and www.goalballcentral.net;
+add localhost only if you want to test locally. Keep email/password sign-in
+enabled. Use an existing app account; no account creation was added.
+Web Firebase identifiers in admin/config.js are the public values already in
+the app, not a service-account credential. If browser API-key restrictions
+apply, allow the production domains. Apps Script's server-side account lookup
+also needs a key compatible with server requests (see step 2).
+
+2. Protect the existing Google Apps Script backend
+The app posts saveFinalScore and updatePools to this deployment:
+https://script.google.com/macros/s/AKfycbxXn-ZLqTgLajg8YcTwIj-2zMq9KmpNaZrVv1Awy2diSWjXwMOJyjsUQn1VW62eSXP-/exec
+
+The app ZIP does not include that script's source. Review its existing doPost
+and doGet before applying this adapter; it assumes doPost reads a JSON body
+and dispatches saveFinalScore/updatePools. No other POST action is passed
+through by the adapter. Adjust deliberately if that script serves other tools.
+
+The project link supplied in chat is:
+https://script.google.com/u/0/home/projects/1FrJX7s0JSnMbXDpE6QzafFppMiMTjOogVDaSPc7_sPZZUDYdbER3yBFi/edit
+It redirected to the public Apps Script landing page in the available browser;
+its source has not been inspected. Provide the project's .gs files to finish
+the adapter review before enabling writes.
+
+Back up the script. Rename the existing function doPost(e) to
+goalballLegacyPost(e). Add backend/AdminAuth.gs as a new script file.
+There must be exactly ONE function named doPost across the project.
+Keep its existing doGet for public schedule and rankings reads, and ensure
+doGet cannot perform score writes or pool updates through query parameters.
+
+In Project Settings > Script Properties set:
+FIREBASE_WEB_API_KEY = the API key for the goalball-central-app Firebase project
+GOALBALL_ADMIN_UIDS = comma-separated UIDs of authorized administrator accounts
+
+Find UIDs under Firebase Authentication > Users. Do not use email addresses in
+this property. Do not put these properties in website JavaScript. Use an API
+key restricted to the Identity Toolkit API if you create a separate server key;
+a browser-referrer-only key will not work from UrlFetchApp. Never use a service
+account private key as FIREBASE_WEB_API_KEY.
+
+The guard validates tokens through Google's accounts:lookup service, checks
+their project, expiry, active account, and administrator UID. It serializes
+writes with a script lock. The existing backend remains responsible for
+schedule-row identity, result formatting, sheet writes, and AUTO/LOCKED behavior.
+
+3. Update the mobile app BEFORE enforcing backend authentication
+The supplied app's POST bodies contain no ID token. Enforcing the new backend
+guard will deny writes from old app versions. backend/app-client-updates has
+replacement copies of lib/api_service.dart and lib/admin_dashboard_screen.dart
+with ID tokens added to those requests. Apply and test them in the Flutter
+repository and distribute an app update before retiring old client support.
+Use the SAME protected endpoint for both clients. If you create a replacement
+deployment, update its URL in both Dart files as well as the website config.
+
+4. Deploy and connect
+Deploy a new version of the Apps Script web app, executing as the script owner,
+with browser-callable access. Authentication is enforced INSIDE doPost by the
+Firebase check; the deployment must not redirect fetch requests to a Google
+sign-in page. Review deployment permissions carefully for your existing setup.
+Update or retire ALL older deployments which allow unauthenticated writes;
+adding a protected deployment alone does not secure an older public endpoint.
+Keep public read endpoints available to the main website.
+
+Set protectedAdminUrl in admin/config.js to the protected /exec URL, only after
+the guard is deployed. If its schedule read URL changed, also set scheduleUrl.
+Once configured, /admin/ checks the administrator allowlist before displaying
+any tools, then sends a fresh Firebase ID token with every write.
+
+Test on a staging sheet first: a request without a token must fail, a Firebase
+user outside GOALBALL_ADMIN_UIDS must fail, an allowed user must pass authorize,
+and a selected game must save in the correct row. Test a completed-score
+replacement and an AUTO/LOCKED pool update. Verify browser CORS/redirect access
+from www.goalballcentral.net: the app uses text/plain JSON to avoid preflight,
+but the actual Apps Script deployment must still return browser-readable JSON.
+If browser reads are blocked, use an authenticated same-origin server proxy;
+do not use mode:no-cors or remove token checks.
+
+5. Publish the website
+Copy the website files from this folder into your goalball-central-website
+checkout, review the diff, commit, and push to its existing publishing branch.
+Do not copy a new .git folder or replace your Git history. This archive contains
+no .git folder. Existing CNAME and public pages are preserved.
+Open https://www.goalballcentral.net/admin/ after GitHub Pages deployment.
+backend/*.gs and backend/app-client-updates are setup sources; publishing these
+files does not deploy Apps Script or update the mobile app. They contain no
+server credentials and may instead be kept outside the published site.
+
+Local preview
+Serve this directory over HTTP (do not open admin/index.html as file://):
+  python -m http.server 8765
+Open http://localhost:8765/admin/.
+
+Verification performed
+- JavaScript syntax and static navigation/link checks.
+- Mocked server guard tests: missing credentials, invalid tokens, disabled
+  accounts, wrong project, expired tokens, non-admin users, invalid scores,
+  allowed admin dispatch, unsupported actions, lock contention, lock release.
+- Browser check of actual Firebase sign-in form loading (no login credentials
+  were entered), court goal entry, review statistics, match persistence, and
+  downloading and importing a match backup.
+- Mocked frontend checks of auth gating, schedule filtering, write bodies, and
+  UID-separated scouting saves; see tests for exact coverage.
+
+Not verified: production login with a real administrator, actual Apps Script
+source compatibility, deployed CORS behavior, staging/live score writes, pool
+recalculation, Flutter compilation, or a production deployment.
+
+References used for the implementation
+Firebase web CDN setup: https://firebase.google.com/docs/web/alt-setup
+Firebase web auth: https://firebase.google.com/docs/auth/web/start
+Google accounts lookup: https://docs.cloud.google.com/identity-platform/docs/reference/rest/v1/accounts/lookup

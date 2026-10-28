@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><title>Admin Login | Goalball Central</title>
+<link rel="icon" href="/favicon.png"><link rel="stylesheet" href="../styles.css"><link rel="stylesheet" href="admin.css"></head>
+<body><a class="skip-link" href="#adminMain">Skip to admin tools</a><header class="site-header">
+<div class="brand">
+<h1>
+      GOALBALL CENTRAL
+    </h1>
+<div class="brand-line"></div>
+<p>
+      For John
+    </p>
+</div>
+<!-- DESKTOP NAV -->
+<nav class="desktop-nav">
+<a href="../">Home</a>
+<a href="../tournament-information/">Tournament Information Hub</a>
+<a href="../livestreaming/">Watch Live</a>
+<a href="../team-player-profiles/">Team &amp; Player Profiles</a>
+<a href="../team-rating-index/">Team Rankings</a>
+<a href="../mobile-app/">Mobile App</a>
+<a href="../goalball-resources/">Goalball Resources</a>
+<a href="../goalball-rules/">Goalball Rules</a>
+<a href="./" aria-current="page">Admin Login</a>
+</nav>
+<!-- MOBILE MENU BUTTON -->
+<button aria-label="Open navigation menu" class="mobile-menu-button" id="mobileMenuButton">
+    ☰
+  </button>
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav">
+<a href="../">Home</a>
+<a href="../tournament-information/">Tournament Information Hub</a>
+<a href="../livestreaming/">Watch Live</a>
+<a href="../team-player-profiles/">Team &amp; Player Profiles</a>
+<a href="../team-rating-index/">Team Rankings</a>
+<a href="../mobile-app/">Mobile App</a>
+<a href="../goalball-resources/">Goalball Resources</a>
+<a href="../goalball-rules/">Goalball Rules</a>
+<a href="./" aria-current="page">Admin Login</a>
+</nav>
+</header>
+<main id="adminMain" class="admin-main">
+<p class="eyebrow">GOALBALL CENTRAL · ADMINISTRATION</p><h1>Keep the game moving.</h1>
+<p class="intro">Manage final scores, scout the next play, and update tournament standings.</p>
+<p id="status" role="status" aria-live="polite">Connecting to administrator login…</p>
+<noscript>Enable JavaScript to sign in and use the admin tools.</noscript>
+<section id="loginPanel" class="admin-card login-card" hidden aria-labelledby="loginTitle">
+<h2 id="loginTitle">Admin login</h2><p>Use the same administrator account as the Goalball Central app.</p>
+<form id="loginForm"><label for="email">Email address</label><input id="email" type="email" autocomplete="username" required>
+<label for="password">Password</label><div class="password-row"><input id="password" type="password" autocomplete="current-password" required><button id="showPassword" type="button" aria-pressed="false">Show</button></div>
+<button id="signIn" type="submit" class="primary">Sign in</button></form><p class="muted">Authorized administrators only.</p></section>
+<section id="dashboard" hidden aria-label="Administrator tools"><div class="session-bar"><p id="signedInAs"></p><button id="signOut" type="button">Sign out</button></div>
+<p id="setupNotice" class="notice" hidden>Scouting is ready. Score entry and pool updates need the protected Google Apps Script endpoint configured. See ADMIN-SETUP.txt in the download.</p>
+<div class="tool-grid"><button class="admin-card tool" data-view="scores"><span class="tool-number">01</span><strong>Enter final score</strong><span>Find a scheduled game and record the result.</span></button>
+<button class="admin-card tool" data-view="scouting"><span class="tool-number">02</span><strong>Goalball scouting</strong><span>Track throws, defenders, zones, and match statistics.</span></button>
+<button class="admin-card tool" data-view="pools"><span class="tool-number">03</span><strong>Update tournament pools</strong><span>Recalculate standings for AUTO tournaments.</span></button></div>
+<section id="scores" class="admin-card workspace" hidden aria-labelledby="scoresTitle"><h2 id="scoresTitle" tabindex="-1">Enter final score</h2>
+<div class="filter-row"><label>Tournament<select id="tournamentFilter"><option value="">All tournaments</option></select></label><label>Search games<input id="search" type="search" placeholder="Team, gym, or stage"></label><button id="refresh" type="button">Refresh games</button></div>
+<label class="check-label"><input type="checkbox" id="unfinished" checked> Show unfinished games only</label><p id="gamesStatus" role="status"></p>
+<label for="game">Scheduled game</label><select id="game"><option value="">Choose a game</option></select><p id="gameDetails" class="muted"></p>
+<form id="scoreForm"><div class="score-row"><label><span id="teamALabel">Team A score</span><input id="scoreA" type="number" min="0" max="999" step="1" required></label><label><span id="teamBLabel">Team B score</span><input id="scoreB" type="number" min="0" max="999" step="1" required></label></div><button id="saveScore" class="primary" type="submit" disabled>Save final score</button></form></section>
+<section id="scouting" class="workspace" hidden aria-labelledby="scoutingTitle"><h2 id="scoutingTitle" tabindex="-1">Goalball scouting</h2><p class="muted">Matches are saved in this browser, separately for each account. Download a match backup before clearing browser data. App saves do not sync automatically.</p><div id="scoutContainer"></div></section>
+<section id="pools" class="admin-card workspace" hidden aria-labelledby="poolsTitle"><h2 id="poolsTitle" tabindex="-1">Update tournament pools</h2><p>This recalculates standings for every tournament marked AUTO. Tournaments marked LOCKED are preserved by the existing service.</p><button id="updatePools" class="primary" disabled>Update pools</button><p id="poolResult" role="status"></p></section>
+</section></main><footer class="admin-footer">Goalball Central · For John</footer><script type="module" src="admin.js"></script></body></html>
